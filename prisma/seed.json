@@ -1,0 +1,70 @@
+{
+ "telescopeTypes": [
+  {
+   "type": "Reflector",
+   "description": "A reflecting telescope (also called a reflector) is a telescope that uses a single or a combination of curved mirrors that reflect light and form an image."
+  },
+  {
+   "type": "Refractor",
+   "description": "A refracting telescope (also called a refractor) is a type of optical telescope that uses a lens as its objective to form an image (also referred to a dioptric telescope)."
+  }
+ ],
+ "telescopes": [
+  {
+   "name": "Telescope N 150/750 EQ-3",
+   "description": "The Omegon 150/750 EQ-3 Newtonian Reflector is an ideal telescope for beginners in astronomy. This telescope features good optics and a very stable mount.",
+   "price": "279.00",
+   "brand": "Omegon",
+   "type": "Reflector"
+  },
+  {
+   "name": "Telescope N 130/920 EQ-2",
+   "description": "The Omegon 130/920 EQ-3 telescope is just the right telescope for taking your first steps in exploring the night sky. With a very high light collection capacity it is an easy matter to undertake excursions into the world of deep-sky objects. Whether it is Saturn with its ring systems, or the Ring Nebula 2300 light years away with its diaphanous ring - with the Omegon 130/920 even more is possible!",
+   "price": "229.00",
+   "brand": "Omegon",
+   "type": "Reflector"
+  },
+  {
+   "name": "Advanced Telescope 130/650 EQ-320",
+   "description": "The telescope for beginners. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
+   "price": "399.00",
+   "brand": "Omegon",
+   "type": "Reflector"
+  },
+  {
+   "name": "Advanced Telescope 150/750 EQ-320",
+   "description": "The telescope for begginers. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
+   "price": "499.00",
+   "brand": "Omegon",
+   "type": "Reflector"
+  },
+  {
+   "name": "Telescope AC 70/700 AZ-2",
+   "description": "The Omegon AC 70/700 telescope is your first taste of the world of astronomy. Practical observing with it is so simple that it highly suitable for children and adults alike.",
+   "price": "99.00",
+   "brand": "Omegon",
+   "type": "Refractor"
+  },
+  {
+   "name": "Telescope AC 90/1000 EQ-2",
+   "description": "The Omegon 90/1000mm EQ-2 refractor provides you with a good starting point for being able to more closely observe the night sky. The rugged high quality optics and mount are well matched to each other.",
+   "price": "305.00",
+   "brand": "Omegon",
+   "type": "Refractor"
+  },
+  {
+   "name": "Telescope AC 60/700 AZ-1",
+   "description": "This telescope is ideal for easily getting started in amateur astronomy. A super gift for children or adults, and excellent value for money! The instrument is simple to understand and quick to assemble without any tools needed, much along the lines of: 'set up, insert eyepiece, observe'!",
+   "price": "99.00",
+   "brand": "Omegon",
+   "type": "Refractor"
+  },
+  {
+   "name": "Telescope AC 70/700 Mercury AZ-2",
+   "description": "The Optics of the AC 70/700, with its 70mm aperture, this refractor collects 100 times more light than the naked eye and substantially more light than a typical beginner telescope possessing an only slightly smaller aperture of 60mm.",
+   "price": "139.00",
+   "brand": "Skywatcher",
+   "type": "Refractor"
+  }
+ ]
+}
