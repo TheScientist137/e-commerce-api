@@ -20,7 +20,6 @@ model TelescopeType {
   description String
   telescopes Telescope[]
 }
-
 model Telescope {
   id Int @id @default(autoincrement())
   name String
@@ -28,5 +27,5 @@ model Telescope {
   price Int
   brand String
   telescopeTypeId Int
-  telecopeType TelescopeType @relation(fields: [telescopeTypeId], references: [id]) 
+  telescopeType TelescopeType @relation(fields: [telescopeTypeId], references: [id]) 
 }
