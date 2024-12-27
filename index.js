@@ -11,16 +11,8 @@ app.use(session({
  cookie: { maxAge: 6000 * 60 } // 1h
 }));
 
-app.get('/', (req, res) => {
- console.log(req.session);
- console.log(req.session.id);
- req.session.visited = true; // Base endpoint to save the session (stores cookie on sessionStore)
- res.send('Hello World!');
-});
-
-app.get('/api/test', (req, res) => {
- console.log(req.session.id);
- res.send('test');
+app.get('/', (req, res) =>  {
+ res.send('Hello World');
 });
 
 app.listen(PORT, () => {
