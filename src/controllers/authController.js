@@ -5,12 +5,11 @@ const prisma = new PrismaClient();
 
 const registerController = async (req, res) => {
  const { name, email, password } = req.body;
- const saltRounds = 10;
  try {
   const findUser = await prisma.user.findUnique({ where: { email: email } });
   if (findUser) throw new Error('Email already in use');
 
-  const hashedPassword = await bcrypt.hash(password, saltRounds);
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = await prisma.user.create({ data: { name, email, hashedPassword }});
   res.status(201).json({ message: 'Success registration', newUser });
@@ -20,7 +19,8 @@ const registerController = async (req, res) => {
 }
 
 const loginController = async (req, res) => {
- res.sendStatus(200);
+ // If pass the passport authentication control:
+ res.status(201).json({ message: 'Success login' });
 }
 
 const statusController = async (req, res) => {
