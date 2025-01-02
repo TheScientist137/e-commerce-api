@@ -1,21 +1,18 @@
 import passport from "passport";
 import { Strategy } from "passport-local";
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
-// Local Passport Authentication Strategy Class
-
 // Authentication function proccess
 export default passport.use(new Strategy({ usernameField: 'email' }, async (username, password, done) => {
- console.log(`Username: ${username}`);
- console.log(`Password: ${password}`);
- 
  try {
   const findUser = await prisma.user.findUnique({ where: { email: username } });
-
   if (!findUser) throw new Error('User not found!');
-  if (findUser.password !== password) throw new Error('Wrong password!');
+
+  const match = await bcrypt.compare(password, findUser.hashedPassword);
+  if (!match) throw new Error('Bad credentials');
 
   done(null, findUser);
  } catch (error) {

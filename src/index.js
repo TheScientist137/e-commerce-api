@@ -23,5 +23,5 @@ app.use(express.json()); // JSON request body middleware
 app.use('/api/auth', authRoutes); // Authentication Routes
 
 app.listen(PORT, () => {
- console.log(PORT, `App listening on port: ${PORT}`);
+ console.log(`App listening on port: ${PORT}`);
 });
