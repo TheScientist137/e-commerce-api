@@ -6,9 +6,8 @@ import '../strategies/local-strategy.js';
 const router = express.Router();
 
 router.post('/signup', authControllers.registerController);
-router.get('/status', authControllers.statusController);
 router.post('/login',
- passport.authenticate('local', { failureRedirect: '/login' }),
+passport.authenticate('local', { failureRedirect: '/login' }),
  (req, res) => res.redirect('/api/shop/telescopes')
 );
 

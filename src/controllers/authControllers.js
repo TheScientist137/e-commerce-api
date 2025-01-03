@@ -18,9 +18,4 @@ const registerController = async (req, res) => {
  }
 }
 
-const statusController = async (req, res) => {
- console.log('Inside status endpoint');
- return req.user ? res.send(req.user) : res.sendStatus(401);
-}
-
-export default { registerController, statusController };
+export default { registerController };
