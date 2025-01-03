@@ -2,6 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import authRoutes from './routes/authRoutes.js';
+import shopRoutes from './routes/shopRoutes.js';
 import 'dotenv/config';
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(passport.session()); // Session manager middleware (Integrates express-s
 app.use(express.json()); // JSON request body middleware
 
 app.use('/api/auth', authRoutes); // Authentication Routes
+app.use('/api/shop', shopRoutes); // Shop Routes
 
 app.listen(PORT, () => {
  console.log(`App listening on port: ${PORT}`);

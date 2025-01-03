@@ -1,12 +1,15 @@
 import express from 'express';
 import passport from 'passport';
-import authController from '../controllers/authController.js';
+import authControllers from '../controllers/authControllers.js';
 import '../strategies/local-strategy.js';
 
 const router = express.Router();
 
-router.post('/signup', authController.registerController);
-router.post('/login', passport.authenticate('local'), authController.loginController);
-router.get('/status', authController.statusController);
+router.post('/signup', authControllers.registerController);
+router.get('/status', authControllers.statusController);
+router.post('/login',
+ passport.authenticate('local', { failureRedirect: '/login' }),
+ (req, res) => res.redirect('/api/shop/telescopes')
+);
 
 export default router;

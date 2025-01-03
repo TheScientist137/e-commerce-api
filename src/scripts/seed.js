@@ -1,3 +1,4 @@
+// This script only runs one time to seed the database
 const { PrismaClient } = require('@prisma/client');
 const seedData = require('../prisma/seed.json');
 

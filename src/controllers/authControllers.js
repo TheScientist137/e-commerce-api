@@ -18,14 +18,9 @@ const registerController = async (req, res) => {
  }
 }
 
-const loginController = async (req, res) => {
- // If pass the passport authentication control:
- res.status(201).json({ message: 'Success login' });
-}
-
 const statusController = async (req, res) => {
  console.log('Inside status endpoint');
  return req.user ? res.send(req.user) : res.sendStatus(401);
 }
 
-export default { registerController, loginController, statusController };
+export default { registerController, statusController };
