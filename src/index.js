@@ -14,7 +14,7 @@ app.use(session({
  secret: 'secret',
  saveUninitialized: false,
  resave: false,
- cookie: { maxAge: 6000 }, name: 'auth' // 6min
+ cookie: { maxAge: 6000 }, name: 'auth' // 6 seconds
 }));
 
 app.use(passport.initialize()); // Initialize passport middleware
