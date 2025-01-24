@@ -39,6 +39,8 @@ const showTelescopesByTypeIdController = async (req, res) => {
  }
 }
 
+// get telescopes types
+
 export default {
  showTelescopesController,
  showTelescopeByIdController,
