@@ -42,16 +42,7 @@ const logoutController = (req, res) => {
 
 const currentUserController = (req, res) => {
  if (!req.isAuthenticated() || !req.user) {
-  req.logout((err) => {
-    if (err) return next(err);
-    console.log('logued out');
-    req.session.destroy((err) => {
-      if (err) return res.status(500).json({ message: "Failed to destroy session", error: err.message });
-  
-    res.redirect('/');
-      });
-    });
-  }
+}
   res.json(req.user.name);
 }
 
