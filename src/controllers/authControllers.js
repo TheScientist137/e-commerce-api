@@ -17,7 +17,7 @@ const signupController = async (req, res) => {
   res.status(500).json({ message: 'Error in registration', error });
  }
 }
-
+console.log();
 const loginController = async (req, res) =>  {
  try { // mirar stados de respuesta!!
   res.status(200).json({ message: 'Loggued succesfully', user: req.user.name });
@@ -28,22 +28,20 @@ const loginController = async (req, res) =>  {
 
 // Mejorar logout controller!
 const logoutController = (req, res) => {
- req.logout((err) => {
-  if (err) return next(err);
-  console.log('logued out');
   req.session.destroy((err) => {
-    if (err) return res.status(500).json({ message: "Failed to destroy session", error: err.message });
+    if (err) return res.status(500).json({ message: "Failed to destroy session", error: err.message }); 
 
-  res.redirect('/');
- });
-});
+    res.redirect('/');
+    console.log('logued out');
+  });
 };
 // comprobar si la cookie persiste los datos de compra al hacer logout
 
-const currentUserController = (req, res) => {
- if (!req.isAuthenticated() || !req.user) {
-}
-  res.json(req.user.name);
+const currentSessionController = (req, res) => {
+  if (req.user || req.isAuthenticated()) {
+    return res.json({ user: req.user.name }); // utilizarlo en el frontend despuews de sacar alos perros
+  }
+  return res.json({ user: undefined });
 }
 
-export default { signupController, currentUserController, loginController, logoutController };
+export default { signupController, currentSessionController, loginController, logoutController };
