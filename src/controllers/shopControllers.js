@@ -2,15 +2,18 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
+// cambiar console.error por res.status.json
+
+// cambiar nombres a get not show
 const showTelescopesController = async (req, res) => {
  try {
   const findTelescopes = await prisma.telescope.findMany({ include: { telescopeType: true } });
   // Al añadir el include accedemos a la relation creada en prisma
-  if (!findTelescopes) throw new Error('Error loading telescopes');
+  if (!findTelescopes) throw new Error('Error obtaining telescopes');
 
-  res.json({ message: 'Loading telescopes', telescopes: findTelescopes });
+  res.status(200).json({ message: 'Loading telescopes', telescopes: findTelescopes });
  } catch (error) {
-  console.error('Error loading telescopes', error);
+  res.status(500).json({ message: 'Server Error', error });
  }
 }
 
@@ -18,34 +21,17 @@ const showTelescopeByIdController = async (req, res) => {
  const { id } = req.params;
 
  try {
-  const findTelescopeById = await prisma.telescope.findUnique({ where: { id: parseInt(id) } });
-  if (!findTelescopeById) throw new Error('Error loading telescope');
-
-  res.json({ message: 'Loading telescope:', telescope: findTelescopeById });
- } catch (error) {
-  console.error('Error loading telescope by id', error);
- }
-}
-
-const showTelescopesByTypeIdController = async (req, res) => {
- const { typeId } = req.params;
-
- try {
-  const findTelescopesByTypeId = await prisma.telescope.findMany({ 
-   where: { telescopeTypeId: parseInt(typeId) },
+  const findTelescopeById = await prisma.telescope.findUnique({
+   where: { id: parseInt(id) },
    include: { telescopeType: true } });
-   
-  if (!findTelescopesByTypeId) throw new Error('Error loading telescopes by typeId');
+  if (!findTelescopeById) throw new Error('Error obtaining telescope by id');
 
-  res.json({ message: 'Loading telescopes by typeId:', telescopes: findTelescopesByTypeId });
+  res.status(200).json({ message: 'Loading telescope:', telescope: findTelescopeById });
  } catch (error) {
-  console.error('Error loading telescopes by typeId', error);
+  res.status(500).json({ message: 'Server Erorr', error });
  }
 }
-
-// get telescopes types
 
 export default {
  showTelescopesController,
- showTelescopeByIdController,
- showTelescopesByTypeIdController };
+ showTelescopeByIdController };

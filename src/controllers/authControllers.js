@@ -12,12 +12,13 @@ const signupController = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = await prisma.user.create({ data: { name, email, hashedPassword }});
+  
   res.status(201).json({ message: 'Success registration', newUser });
  } catch (error) {
   res.status(500).json({ message: 'Error in registration', error });
  }
 }
-console.log();
+
 const loginController = async (req, res) =>  {
  try { // mirar stados de respuesta!!
   res.status(200).json({ message: 'Loggued succesfully', user: req.user.name });
@@ -39,9 +40,13 @@ const logoutController = (req, res) => {
 
 const currentSessionController = (req, res) => {
   if (req.user || req.isAuthenticated()) {
-    return res.json({ user: req.user.name }); // utilizarlo en el frontend despuews de sacar alos perros
+    return res.json({ user: req.user.name });
   }
-  return res.json({ user: undefined });
+  return res.status(401).json({ message: 'Not Authorized' })
 }
 
-export default { signupController, currentSessionController, loginController, logoutController };
+export default { 
+  signupController,
+  currentSessionController,
+  loginController,
+  logoutController };
