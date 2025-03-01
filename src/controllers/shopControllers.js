@@ -2,9 +2,6 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-// cambiar console.error por res.status.json
-
-// cambiar nombres a get not show
 const showTelescopesController = async (req, res) => {
  try {
   const findTelescopes = await prisma.telescope.findMany({ include: { telescopeType: true } });
