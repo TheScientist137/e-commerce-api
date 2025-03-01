@@ -20,5 +20,5 @@ CREATE TABLE telescopes (
  description TEXT,
  price DECIMAL(10, 2) NOT NULL,
  brand VARCHAR(255) NOT NULL,
- telescope_type_id INT REFERENCES telescope_types(id)
+ telescopeTypeId INT REFERENCES telescope_types(id)
 );

@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-const prisma = new PrismaClient();
 
 const signupController = async (req, res) => {
  const { name, email, password } = req.body;
