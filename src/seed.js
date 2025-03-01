@@ -15,10 +15,6 @@ const pool = new Pool({
 // Read JSON file
 const data = JSON.parse(fs.readFileSync('./src/seed.json', 'utf-8'));
 console.log(data);
-console.log('Database:', process.env.DB_NAME);
-console.log('User:', process.env.DB_USER);
-console.log('Host:', process.env.DB_HOST);
-
 
 // Function to insert data into telescope_types table
 const insertTelescopeTypes = async () => {
