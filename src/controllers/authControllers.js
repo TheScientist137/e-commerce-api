@@ -1,50 +1,43 @@
 import bcrypt from "bcrypt";
+import pool from "../scripts/db.js";
 
 
 const signupController = async (req, res) => {
- const { name, email, password } = req.body;
- try {
-  const findUser = await prisma.user.findUnique({ where: { email: email } });
-  if (findUser) throw new Error('Email already in use');
+  const { name, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  if (!name || !email || !password) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
 
-  const newUser = await prisma.user.create({ data: { name, email, hashedPassword }});
-  
-  res.status(201).json({ message: 'Success registration', newUser });
- } catch (error) {
-  res.status(500).json({ message: 'Error in registration', error });
- }
+  try {
+    const findUserQuery = await pool.query('SELECT * FROM users WHERE email =  $1', [email]);
+    const findUser = findUserQuery.rows[0];
+    if (findUser) return res.status(400).json({ message: 'Email already in use' })
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUserQuery = await pool.query(
+      'INSERT INTO users (name, email, hashedPassword) VALUES ($1, $2, $3) RETURNING *',
+      [name, email, hashedPassword]
+    );
+    const newUser = newUserQuery.rows[0];
+
+    res.status(201).json({ message: 'Success registration', user: newUser });
+  } catch (error) {
+    res.status(500).json({ message: 'Error in registration', error: error.message });
+  }
 }
 
-const loginController = async (req, res) =>  {
- try { // mirar stados de respuesta!!
-  res.status(200).json({ message: 'Loggued succesfully', user: req.user.name });
- } catch(error) {
-  res.status(500).json({ message: 'Server error during loging' });
- }
+const loginController = async (req, res) => {
+
 }
 
 // Mejorar logout controller!
 const logoutController = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) return res.status(500).json({ message: "Failed to destroy session", error: err.message }); 
 
-    res.redirect('/');
-    console.log('logued out');
-  });
 };
-// comprobar si la cookie persiste los datos de compra al hacer logout
 
-const currentSessionController = (req, res) => {
-  if (req.user || req.isAuthenticated()) {
-    return res.json({ user: req.user.name });
-  }
-  return res.status(401).json({ message: 'Not Authorized' })
-}
-
-export default { 
+export default {
   signupController,
-  currentSessionController,
   loginController,
-  logoutController };
+  logoutController
+};

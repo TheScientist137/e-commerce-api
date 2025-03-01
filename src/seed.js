@@ -1,16 +1,5 @@
-import pkg from 'pg';
-const { Pool } = pkg; // Importar Pool correctamente
 import fs from "fs";
-import 'dotenv/config';
-
-// PostgreSQL config conexion
-const pool = new Pool({
- user: process.env.DB_USER,
- host: process.env.DB_HOST,
- database: process.env.DB_NAME,
- password: process.env.DB_PASSWORD,
- port: process.env.DB_PORT
-});
+import pool from "./scripts/db.js";
 
 // Read JSON file
 const data = JSON.parse(fs.readFileSync('./src/seed.json', 'utf-8'));
