@@ -3,7 +3,8 @@ import shopControllers from '../controllers/shopControllers.js';
 
 const router = express.Router();
 
-// Apply authmiddleware to all routes
+// Apply authmiddleware to specified routes
+// router.use(authenticateJWT);
 
 router.get('/telescopes', shopControllers.showTelescopesController);
 router.get('/telescopes/:id', shopControllers.showTelescopeByIdController);
