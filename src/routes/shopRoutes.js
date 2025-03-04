@@ -7,6 +7,5 @@ const router = express.Router();
 // router.use(authenticateJWT);
 
 router.get('/telescopes', shopControllers.showTelescopesController);
-router.get('/telescopes/:id', shopControllers.showTelescopeByIdController);
 
 export default router;
