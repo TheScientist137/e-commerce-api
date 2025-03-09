@@ -1,4 +1,12 @@
 {
+ "users": [
+  {
+   "name": "admin",
+   "email": "admin@email.com",
+   "password": "theScientist137",
+   "role": "admin"
+  }
+ ],
  "telescopeTypes": [
   {
    "type": "Reflector",
@@ -9,62 +17,156 @@
    "description": "A refracting telescope (also called a refractor) is a type of optical telescope that uses a lens as its objective to form an image (also referred to a dioptric telescope)."
   }
  ],
+ "mountTypes": [
+  {
+   "type": "Alt-azimuth without GoTo",
+   "description": "With an altazimuth mount, a telescope can be slewed upwards and across the horizon. This horizontal angle is also called azimuth. Altazimuth mounts can be quite simply constructed, similar to a photographic tripod."
+  },
+  {
+   "type": "Alt-azimuth with GoTo",
+   "description": "With an altazimuth mount, a telescope can be slewed upwards and across the horizon. This horizontal angle is also called azimuth. Altazimuth mounts can be quite simply constructed, similar to a photographic tripod. The term GoTo describes a computer control with a database. The motorised system allows you to select and automatically point at objects. The motors also take care of the tracking: the selected object always remains visible in the eyepiece."
+  },
+  {
+   "type": "Equatorial without GoTo",
+   "description": "Equatorial mounts are so designed that one axis can be aligned parallel to the Earth's rotational axis. This means that the telescope only has to be rotated about this axis - called the hour axis - to compensate for the Earth’s rotation, allowing the selected astronomical object to always remain centred in the eyepiece. In order to align the hour axis parallel to the Earth's rotational axis, the direction of north and the latitude of the observing site must be known. If the equatorial mount has a polar finder, then this may be used to easily align on the Pole Star."
+  },
+  {
+   "type": "Equatorial with GoTo",
+   "description": "Equatorial mounts are so designed that one axis can be aligned parallel to the Earth's rotational axis. This means that the telescope only has to be rotated about this axis - called the hour axis - to compensate for the Earth’s rotation. This allows long exposure times during astrophotography without experiencing the annoying ‘field rotation’ effect. The GoTo control allows astronomical objects to be selected from the built-in database. The motors then automatically slew the telescope to align with the object selected and keep it automatically centred in the eyepiece or on the camera sensor."
+  },
+  {
+   "type": "Camera Mounts",
+   "description": "Camera mounts are extremely portable mounts onto which a camera can be attached. Camera mounts allow the Earth’s rotation to be compensated for - a prerequisite for long-period exposures. These are basically very compact equatorial mounts for photographing the night sky. Larger camera mount models also allow the use of heavy camera lenses or even small telescopes."
+  }
+ ],
  "telescopes": [
   {
    "name": "Telescope N 150/750 EQ-3",
    "description": "The Omegon 150/750 EQ-3 Newtonian Reflector is an ideal telescope for beginners in astronomy. This telescope features good optics and a very stable mount.",
    "price": 279.00,
    "brand": "Omegon",
-   "telescopeTypeId": 1
+   "telescope_type_id": 1,
+   "image": "./src/public/images/Omegon-Telescope-N-150-750-EQ-3.jpg"
   },
   {
    "name": "Telescope N 130/920 EQ-2",
    "description": "The Omegon 130/920 EQ-3 telescope is just the right telescope for taking your first steps in exploring the night sky. With a very high light collection capacity it is an easy matter to undertake excursions into the world of deep-sky objects. Whether it is Saturn with its ring systems, or the Ring Nebula 2300 light years away with its diaphanous ring - with the Omegon 130/920 even more is possible!",
    "price": 229.00,
    "brand": "Omegon",
-   "telescopeTypeId": 1
+   "telescope_type_id": 1,
+   "image": "./src/public/images/Omegon-Telescope-N-130-920-EQ-3.jpg"
   },
   {
    "name": "Advanced Telescope 130/650 EQ-320",
    "description": "The telescope for beginners. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
    "price": 399.00,
    "brand": "Omegon",
-   "telescopeTypeId": 1
+   "telescope_type_id": 1,
+   "image": "./src/public/images/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
   },
   {
    "name": "Advanced Telescope 150/750 EQ-320",
    "description": "The telescope for begginers. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
    "price": 499.00,
    "brand": "Omegon",
-   "telescopeTypeId": 1
+   "telescope_type_id": 1,
+   "image": "./src/public/images/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
   },
   {
    "name": "Telescope AC 70/700 AZ-2",
    "description": "The Omegon AC 70/700 telescope is your first taste of the world of astronomy. Practical observing with it is so simple that it highly suitable for children and adults alike.",
    "price": 99.00,
    "brand": "Omegon",
-   "telescopeTypeId": 2
+   "telescope_type_id": 2,
+   "image": "./src/public/images/Omegon-Telescope-AC-70-700-AZ-2.jpg"
   },
   {
    "name": "Telescope AC 90/1000 EQ-2",
    "description": "The Omegon 90/1000mm EQ-2 refractor provides you with a good starting point for being able to more closely observe the night sky. The rugged high quality optics and mount are well matched to each other.",
    "price": 305.00,
    "brand": "Omegon",
-   "telescopeTypeId": 2
+   "telescope_type_id": 2,
+   "image": "./src/public/images/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
   },
   {
    "name": "Telescope AC 60/700 AZ-1",
    "description": "This telescope is ideal for easily getting started in amateur astronomy. A super gift for children or adults, and excellent value for money! The instrument is simple to understand and quick to assemble without any tools needed, much along the lines of: 'set up, insert eyepiece, observe'!",
    "price": 99.00,
    "brand": "Omegon",
-   "telescopeTypeId": 2
+   "telescope_type_id": 2,
+   "image": "./src/public/images/Omegon-Telescope-AC-60-700-AZ-1.jpg"
   },
   {
    "name": "Telescope AC 70/700 Mercury AZ-2",
    "description": "The Optics of the AC 70/700, with its 70mm aperture, this refractor collects 100 times more light than the naked eye and substantially more light than a typical beginner telescope possessing an only slightly smaller aperture of 60mm.",
    "price": 139.00,
    "brand": "Skywatcher",
-   "telescopeTypeId": 2
+   "telescope_type_id": 2,
+   "image": "./src/public/images/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
+  }
+ ],
+ "mounts": [
+  {
+   "name": "Mount AZ-Baby",
+   "description": "This ultra-compact mount is ideal for telescopes of up to 100mm lens diameter. Whether on a trip or simply for a spontaneous night's observing - it is always an advantage not to have to lug heavy equipment around. The Baby alt-azimuth mount moves so precisely that it still lets you observe even at higher magnifications.",
+   "price": 199.00,
+   "brand": "Omegon",
+   "mount_type_id": 1,
+   "image": "./src/public/images/Omegon-Mount-AZ-Baby.jpg"
+  },
+  {
+   "name": "Mount AZ-Pronto",
+   "description": "The Sky-Watcher AZ PRONTO is a lightweight, highly portable Alt-Azimuth mount constructed from cast aluminium, designed to attach small telescopes up to 3kg in weight, fitted with a 45mm dovetail bar. Supplied with two flexible slow-motion cables, one for vertical and one for horizontal smooth fine motion control. The slow motion cables can be positioned in a choice of two different positions on each axis, making it convenient to control both refractor and reflector telescopes. The mount can also be moved around each axis manually, for rapid panning and elevation adjustments. Accurately tracks distant moving objects with ease. This delightfully convenient and well engineered grab-and-go mounting is suitable for both terrestrial observations and astronomical viewing.",
+   "price": 110.00,
+   "brand": "Skywatcher",
+   "mount_type_id": 1,
+   "image": "./src/public/images/Skywatcher-Mount-AZ-Pronto.jpg"
+  },
+  {
+   "name": "Mount Star Discovery AZ SynScan WiFi GoTo",
+   "description": "The Star Discovery mount with SynScan™ WIFI module generates its own WLAN. This makes it wirelessly controllable with your Android, iOS smartphone or tablet. All you have to do is install the free SynScan app on your mobile device. Control via the SynScan app has many advantages - It is wireless, particularly intuitive with its touch screen and graphical user interface and offers other options, such as the astronomical highlights for the current night, identification of astronomical objects, etc. The initialization required before observing is also very straightforward and uses GPS data from your mobile device. After performing the simple alignment procedure, you are then immediately ready to start exploring the universe. The SynScan app allows fully computerized GoTo control of the mount and automatically slews your telescope to any object you select from the extensive database of over 10,000 objects.",
+   "price": 349.95,
+   "brand": "Skywatcher",
+   "mount_type_id": 2,
+   "image": "./src/public/images/Skywatcher-Mount-Star-Discovery-AZ-SynScan-WiFi-GoTo.jpg"
+  },
+  {
+   "name": "Mount AZ-GTi GoTo WiFi without Tripod",
+   "description": "The AZ-GTi mount - this lightweight and very compact altazimuth mount can carries optics up to 5kg in weight. Despite its small size, the mount has computer control (GoTo) to track astronomical objects with your telescope or camera. This is achieved via the built-in WLAN (WiFi). The mount generates a Wi-Fi signal that allows you to connect to your smartphone or tablet. You can then control the telescope via Skywatcher's SynScan app for Android or via iOS. The SynScan app allows you to use the GoTo system to select from around 10,000 astronomical objects. The mount must first be aligned to the night sky for this to function. The app offers several methods that make it easy even for beginners to carry out the alignment. You do not require any previous astronomical knowledge. What's more - the app does not simply allow you to select astronomical objects, the software also recommends objects of special interest and helps with identifying objects. As the SynScan app uses the graphical user interface of your mobile device, operation is much more simple and intuitive than when using the hand controls supplied with classic mounts. The AZ-GTi is equipped with the patented FreedomFind encoder technology. This ensures that the mount will not lose its orientation even if you move the telescope or camera manually. So you can slew to near the object manually and let the GoTo do the final fine adjustment. This much quicker and also saves on electricity. And as regards electricity - you can operate the mount using batteries or with a 'Powertank' (DC 7.5 ~14V, 0.75A, tip positive). The mount can be connected to most camera tripods via the standard 3/8 photo screw.",
+   "price": 289.95,
+   "brand": "Skywatcher",
+   "mount_type_id": 2,
+   "image": "./src/public/images/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
+  },
+  {
+   "name": "",
+   "description": "",
+   "price": 0,
+   "brand": "",
+   "mount_type_id": 3,
+   "image": ""
+  },
+  {
+   "name": "",
+   "description": "",
+   "price": 0,
+   "mount_type_id": 3,
+   "image": ""
+  },
+  {
+   "name": "",
+   "description": "",
+   "price": 0,
+   "brand": "",
+   "mount_type_id": 4,
+   "image": ""
+  },
+  {
+   "name": "",
+   "description": "",
+   "price": 0,
+   "mount_type_id": 4,
+   "image": ""
   }
  ]
 }

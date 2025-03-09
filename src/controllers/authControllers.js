@@ -49,10 +49,10 @@ const loginController = async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
 
     // Generate JWT token
-    const token = generateToken(user.id);
+    const token = generateToken({ userId: user.id, role: user.role });
     console.log(user);
 
-    res.status(200).json({ message: 'Login succesfully', token, user: user.name });
+    res.status(200).json({ message: 'Login succesfully', token, user: user.name, role: user.role });
   } catch (error) {
     res.status(500).json({ message: 'Error during login', error: error.message });
   }
