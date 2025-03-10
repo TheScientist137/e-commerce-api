@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 const data = JSON.parse(fs.readFileSync('./src/seed.json', 'utf-8'));
 console.log(data);
 
-// Function to insert telescope types  data into telescope_types table
+// Function to insert telescope types data into telescope_types table
 const insertTelescopeTypes = async () => {
  for (const type of data.telescopeTypes) {
   await pool.query(

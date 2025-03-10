@@ -33,10 +33,6 @@
   {
    "type": "Equatorial with GoTo",
    "description": "Equatorial mounts are so designed that one axis can be aligned parallel to the Earth's rotational axis. This means that the telescope only has to be rotated about this axis - called the hour axis - to compensate for the Earth’s rotation. This allows long exposure times during astrophotography without experiencing the annoying ‘field rotation’ effect. The GoTo control allows astronomical objects to be selected from the built-in database. The motors then automatically slew the telescope to align with the object selected and keep it automatically centred in the eyepiece or on the camera sensor."
-  },
-  {
-   "type": "Camera Mounts",
-   "description": "Camera mounts are extremely portable mounts onto which a camera can be attached. Camera mounts allow the Earth’s rotation to be compensated for - a prerequisite for long-period exposures. These are basically very compact equatorial mounts for photographing the night sky. Larger camera mount models also allow the use of heavy camera lenses or even small telescopes."
   }
  ],
  "telescopes": [
@@ -139,34 +135,34 @@
    "image": "./src/public/images/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
   },
   {
-   "name": "",
-   "description": "",
-   "price": 0,
-   "brand": "",
+   "name": "Mount EQ5",
+   "description": "This mount is a further development of the EQ-5, in a white design. It provides a solid platform for most large telescopes and is excellent for exploring the night sky. Once you have aligned the parallactic mount on the Pole Star, you can easily sight on an object, position it in the field of view, and track it using the slow motion control knobs provided. Fine adjustment is possible in right ascension and declination. The polar elevation at the observing site can be set using the fine scale provided and adjusted perfectly by using two screws. Both a polar finder and electric motors for both axes plus a control unit can be retrofitted: the NEQ-5 is suitable not only for visual observing, but also for getting started in astrophotography. Long exposure astrophotography is also possible with the optional upgrades available, such as the motor kit or the GoTo kit. With a little practice, you will soon be able to produce successful images of galaxies and nebulae.",
+   "price": 369.95,
+   "brand": "Skywatcher",
    "mount_type_id": 3,
-   "image": ""
+   "image": "./src/public/images/Skywatcher-Mount-EQ5.jpg"
   },
   {
-   "name": "",
-   "description": "",
-   "price": 0,
+   "name": "Mount EQ3-2",
+   "description": "This mount is a further development of the EQ-3 mount designed in white. It provides a stable base for most medium-sized optics and is ideal for exploring the night sky. Once you have aligned the parallactic mount with the Pole Star, you can easily sight on an object, adjust it in the field of view and track it using the flexible slow-motions. Fine adjustment is possible in both right ascension and declination. The polar elevation at the observing site can be set using the fine scale provided and adjusted perfectly by using two screws. Both polar finder and electric motors plus a control can be retrofitted to both axes: the EQ3-2 is suitable not only for visual observing, but also for getting started in astrophotography. With optional add-ons such as the motor kit or GoTo upgrade kit, long exposure astrophotography also becomes possible. With a little practice, you will soon be able to produce successful images of galaxies and nebulae.",
+   "price": 325.00,
    "mount_type_id": 3,
-   "image": ""
+   "image": "./src/public/images/Skywatcher-Mount-EQ3-2.jpg"
   },
   {
-   "name": "",
-   "description": "",
-   "price": 0,
-   "brand": "",
+   "name": "Mount EQ6-R Pro SynScan GoTo",
+   "description": "The computer-controlled EQ6-R PRO Synscan™ mount is an evolutionary improvement of the legendary EQ6 PRO. The modern, streamlined design of the EQ-6 R PRO includes new features that experienced astrophotographers will immediately approve of.",
+   "price": 1659.00,
+   "brand": "Skywatcher",
    "mount_type_id": 4,
-   "image": ""
+   "image": "./src/images/Skywatcher-Mount-EQ6-R-Pro-SynScan-GoTo.jpg"
   },
   {
-   "name": "",
-   "description": "",
-   "price": 0,
+   "name": "Mount HEQ-5 Pro SynScan GoTo",
+   "description": "The high-quality parallactic HEQ-5 Pro GoTo mount turns your telescope into a precision instrument for exciting and fascinating astronomical observing. The extensive equipment included with the HEQ-5 Pro GoTo mount includes a polar finder for easily aligning the telescope to the correct position in the sky, aluminium right ascension and declination scales and electric tracking motors on both axes. So you only need to align the parallactic mount to the celestial North Pole before observing and then let your telescope track via the motors - ideal for getting started in astrophotography! The mount weighs 7.4 kg and is much more stable than the simpler EQ-5 mount. The HEQ-5 Pro GoTo also damps down vibrations much more quickly.",
+   "price": 1145.00,
    "mount_type_id": 4,
-   "image": ""
+   "image": "./src/public/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
   }
  ]
 }
