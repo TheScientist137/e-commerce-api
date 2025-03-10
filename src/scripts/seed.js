@@ -17,6 +17,8 @@ const insertTelescopeTypes = async () => {
  console.log('Telescope types data inserted correctly');
 }
 
+// Function to insert mount types data into mount_types table
+
 // Function to insert telescopes data into telescope table
 const insertTelescopes = async () => {
  for (const telescope of data.telescopes) {
@@ -27,6 +29,8 @@ const insertTelescopes = async () => {
  }
  console.log('Telescopes data inserted correctly');
 }
+
+// Function to insert mounts data into mount table
 
 // Function to insert an admin user into users table with admin role
 const insertAdnminUser = async () => {
