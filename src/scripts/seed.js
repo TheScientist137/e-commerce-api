@@ -1,5 +1,5 @@
 import fs from "fs";
-import pool from "./scripts/db.js";
+import pool from "../config/db.js";
 import bcrypt from 'bcrypt';
 
 // Read JSON file amd save conent on data

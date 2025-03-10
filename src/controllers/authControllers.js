@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import pool from "../scripts/db.js";
-import { generateToken } from "../scripts/jwt.js";
+import pool from "../config/db.js";
+import { generateToken } from "../config/jwt.js";
 
 const signupController = async (req, res) => {
   const { name, email, password } = req.body;

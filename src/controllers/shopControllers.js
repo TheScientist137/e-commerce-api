@@ -1,4 +1,4 @@
-import pool from "../scripts/db.js";
+import pool from "../config/db.js";
 
 const showTelescopesController = async (req, res) => {
  try {

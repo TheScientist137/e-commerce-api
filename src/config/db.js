@@ -1,6 +1,7 @@
 import pkg from "pg";
-const { Pool } = pkg;
 import 'dotenv/config';
+
+const { Pool } = pkg;
 
 // PostgreSQL config conexion
 const pool = new Pool({

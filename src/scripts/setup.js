@@ -1,5 +1,5 @@
 import fs from "fs";
-import pool from "./scripts/db.js";
+import pool from "../config/db.js";
 
 const schema = fs.readFileSync("./scripts/schema.sql", "utf-8");
 

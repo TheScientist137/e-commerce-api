@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import authRoutes from './routes/authRoutes.js';
-import shopRoutes from './routes/shopRoutes.js';
+import authRoutes from './src/routes/authRoutes.js';
+import shopRoutes from './src/routes/shopRoutes.js';
 import 'dotenv/config';
 
 const app = express();
