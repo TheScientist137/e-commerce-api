@@ -16,6 +16,8 @@ const showTelescopesController = async (req, res) => {
  }
 }
 
+// show mounts controller
+
 export default {
  showTelescopesController,
 };

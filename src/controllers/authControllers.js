@@ -58,7 +58,6 @@ const loginController = async (req, res) => {
   }
 }
 
-// Mejorar logout controller!
 const logoutController = (req, res) => {
   try {
     res.status(200).json({ message: 'Loggued out succesfully' })
