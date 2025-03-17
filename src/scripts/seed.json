@@ -7,7 +7,7 @@
    "role": "admin"
   }
  ],
- "telescopeTypes": [
+ "telescope_types": [
   {
    "type": "Reflector",
    "description": "A reflecting telescope (also called a reflector) is a telescope that uses a single or a combination of curved mirrors that reflect light and form an image."
@@ -17,7 +17,7 @@
    "description": "A refracting telescope (also called a refractor) is a type of optical telescope that uses a lens as its objective to form an image (also referred to a dioptric telescope)."
   }
  ],
- "opticalDesign": [
+ "optical_design": [
   {
    "type": "Achromat",
    "description": "Achromats represent the classic, popular, modern lens telescope design. An achromat consists of not one but of two objective lenses, usually made of crown glass and flint glass, and have the effect of a positive and a negative lens."
@@ -35,7 +35,7 @@
    "description": "A catadioptric telescope combines lenses and mirrors to form an image, offering a compact design with excellent optical performance."
   }
  ],
- "mountTypes": [
+ "mount_types": [
   {
    "type": "Alt-azimuth without GoTo",
    "description": "With an altazimuth mount, a telescope can be slewed upwards and across the horizon. This horizontal angle is also called azimuth. Altazimuth mounts can be quite simply constructed, similar to a photographic tripod."

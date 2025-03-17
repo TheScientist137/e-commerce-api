@@ -14,6 +14,13 @@ CREATE TABLE telescope_types (
  description TEXT
 );
 
+-- optical_designs table 
+CREATE TABLE optical_designs (
+ id SERIAL PRIMARY KEY,
+ type VARCHAR(255) NOT NULL,
+ description TEXT
+);
+
 -- mount_types table
 CREATE TABLE mount_types (
  id SERIAL PRIMARY KEY,
