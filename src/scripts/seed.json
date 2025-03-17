@@ -70,7 +70,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "./src/public/images/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
+   "image": "../../public/images/telescopes/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
   },
   {
    "name": "Telescope AC 60/700 AZ-1",
@@ -79,7 +79,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "./src/public/images/Omegon-Telescope-AC-60-700-AZ-1.jpg"
+   "image": "../../public/images/telescopes/Omegon-Telescope-AC-60-700-AZ-1.jpg"
   },
   {
    "name": "Telescope AC 70/700 Mercury AZ-2",
@@ -88,7 +88,7 @@
    "brand": "Skywatcher",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "./src/public/images/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
+   "image": "../../public/images/telescopes/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
   },
   {
    "name": "Apochromatic refractor AP 80/600 EvoStar ED OTA",
@@ -97,7 +97,7 @@
    "brand": "Skywatcher",
    "telescope_type_id": 2,
    "optical_design_id": 2,
-   "image": "../src/public/images/Skywatcher-Apochromatic-refractor-AP-80-600-EvoStar-ED-OTA.jpg"
+   "image": "../../public/images/telescopes/Skywatcher-Apochromatic-refractor-AP-80-600-EvoStar-ED-OTA.jpg"
   },
   {
    "name": "Telescope N 150/750 EQ-3",
@@ -106,7 +106,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "./src/public/images/Omegon-Telescope-N-150-750-EQ-3.jpg"
+   "image": "../../public/images/telescopes/Omegon-Telescope-N-150-750-EQ-3.jpg"
   },
   {
    "name": "Telescope N 130/920 EQ-2",
@@ -115,7 +115,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "./src/public/images/Omegon-Telescope-N-130-920-EQ-3.jpg"
+   "image": "../../public/images/telescopes/Omegon-Telescope-N-130-920-EQ-3.jpg"
   },
   {
    "name": "Advanced Telescope 130/650 EQ-320",
@@ -124,7 +124,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "./src/public/images/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
+   "image": "../../public/images/telescopes/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
   },
   {
    "name": "Advanced Telescope 150/750 EQ-320",
@@ -133,7 +133,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "./src/public/images/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
+   "image": "../../public/images/telescopes/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
   },
   {
    "name": "Maksutov telescope MC 127/1500 NexStar 127 SLT GoTo",
@@ -142,7 +142,7 @@
    "brand": "Celestron",
    "telescope_type_id": 1,
    "optical_design_id": 4,
-   "image": "./src/public/images/Celestron-Maksutov-telescope-MC-127-1500-NextStar-127-SLT-GoTo.jpg"
+   "image": "../../public/images/telescopes/Celestron-Maksutov-telescope-MC-127-1500-NextStar-127-SLT-GoTo.jpg"
   }
  ],
  "mounts": [
@@ -152,7 +152,7 @@
    "price": 199.00,
    "brand": "Omegon",
    "mount_type_id": 1,
-   "image": "./src/public/images/Omegon-Mount-AZ-Baby.jpg"
+   "image": "../../public/images/mounts/Omegon-Mount-AZ-Baby.jpg"
   },
   {
    "name": "Mount AZ-Pronto",
@@ -160,7 +160,7 @@
    "price": 110.00,
    "brand": "Skywatcher",
    "mount_type_id": 1,
-   "image": "./src/public/images/Skywatcher-Mount-AZ-Pronto.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-AZ-Pronto.jpg"
   },
   {
    "name": "Mount Star Discovery AZ SynScan WiFi GoTo",
@@ -168,7 +168,7 @@
    "price": 349.95,
    "brand": "Skywatcher",
    "mount_type_id": 2,
-   "image": "./src/public/images/Skywatcher-Mount-Star-Discovery-AZ-SynScan-WiFi-GoTo.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-Star-Discovery-AZ-SynScan-WiFi-GoTo.jpg"
   },
   {
    "name": "Mount AZ-GTi GoTo WiFi without Tripod",
@@ -176,7 +176,7 @@
    "price": 289.95,
    "brand": "Skywatcher",
    "mount_type_id": 2,
-   "image": "./src/public/images/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
   },
   {
    "name": "Mount EQ5",
@@ -184,14 +184,14 @@
    "price": 369.95,
    "brand": "Skywatcher",
    "mount_type_id": 3,
-   "image": "./src/public/images/Skywatcher-Mount-EQ5.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-EQ5.jpg"
   },
   {
    "name": "Mount EQ3-2",
    "description": "This mount is a further development of the EQ-3 mount designed in white. It provides a stable base for most medium-sized optics and is ideal for exploring the night sky. Once you have aligned the parallactic mount with the Pole Star, you can easily sight on an object, adjust it in the field of view and track it using the flexible slow-motions. Fine adjustment is possible in both right ascension and declination. The polar elevation at the observing site can be set using the fine scale provided and adjusted perfectly by using two screws. Both polar finder and electric motors plus a control can be retrofitted to both axes: the EQ3-2 is suitable not only for visual observing, but also for getting started in astrophotography. With optional add-ons such as the motor kit or GoTo upgrade kit, long exposure astrophotography also becomes possible. With a little practice, you will soon be able to produce successful images of galaxies and nebulae.",
    "price": 325.00,
    "mount_type_id": 3,
-   "image": "./src/public/images/Skywatcher-Mount-EQ3-2.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-EQ3-2.jpg"
   },
   {
    "name": "Mount EQ6-R Pro SynScan GoTo",
@@ -199,14 +199,14 @@
    "price": 1659.00,
    "brand": "Skywatcher",
    "mount_type_id": 4,
-   "image": "./src/images/Skywatcher-Mount-EQ6-R-Pro-SynScan-GoTo.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-EQ6-R-Pro-SynScan-GoTo.jpg"
   },
   {
    "name": "Mount HEQ-5 Pro SynScan GoTo",
    "description": "The high-quality parallactic HEQ-5 Pro GoTo mount turns your telescope into a precision instrument for exciting and fascinating astronomical observing. The extensive equipment included with the HEQ-5 Pro GoTo mount includes a polar finder for easily aligning the telescope to the correct position in the sky, aluminium right ascension and declination scales and electric tracking motors on both axes. So you only need to align the parallactic mount to the celestial North Pole before observing and then let your telescope track via the motors - ideal for getting started in astrophotography! The mount weighs 7.4 kg and is much more stable than the simpler EQ-5 mount. The HEQ-5 Pro GoTo also damps down vibrations much more quickly.",
    "price": 1145.00,
    "mount_type_id": 4,
-   "image": "./src/public/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
+   "image": "../../public/images/mounts/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
   }
  ]
 }
