@@ -17,6 +17,24 @@
    "description": "A refracting telescope (also called a refractor) is a type of optical telescope that uses a lens as its objective to form an image (also referred to a dioptric telescope)."
   }
  ],
+ "opticalDesign": [
+  {
+   "type": "Achromat",
+   "description": "Achromats represent the classic, popular, modern lens telescope design. An achromat consists of not one but of two objective lenses, usually made of crown glass and flint glass, and have the effect of a positive and a negative lens."
+  },
+  {
+   "type": "Apochromat",
+   "description": "Apochromats are refractors whose lenses are laid out in such a way as to combine at least three colours at a common focal point. This suppresses the chromatic aberration that is typical of refractor telescopes. Without this correction, bright objects like the Moon or the planets would have disruptive colour fringes."
+  },
+  {
+   "type": "Newton",
+   "description": "The Newtonian Reflector, named after Isaac Newton, is the absolute classic reflector telescope. The main mirror, which collects light and reflects it, is located at the lower end of the tube. The smaller secondary mirror is located in the top section. It deflects the light by 90°. The focuser, in which one can deploy an eyepiece or camera in order to focus the image, is also located here. The advantage of this system is that there are no lenses involved, and therefore no chromatic aberration arises. In addition, this design offers the largest aperture for the money."
+  },
+  {
+   "type": "Catadioptric",
+   "description": "A catadioptric telescope combines lenses and mirrors to form an image, offering a compact design with excellent optical performance."
+  }
+ ],
  "mountTypes": [
   {
    "type": "Alt-azimuth without GoTo",
@@ -37,43 +55,12 @@
  ],
  "telescopes": [
   {
-   "name": "Telescope N 150/750 EQ-3",
-   "description": "The Omegon 150/750 EQ-3 Newtonian Reflector is an ideal telescope for beginners in astronomy. This telescope features good optics and a very stable mount.",
-   "price": 279.00,
-   "brand": "Omegon",
-   "telescope_type_id": 1,
-   "image": "./src/public/images/Omegon-Telescope-N-150-750-EQ-3.jpg"
-  },
-  {
-   "name": "Telescope N 130/920 EQ-2",
-   "description": "The Omegon 130/920 EQ-3 telescope is just the right telescope for taking your first steps in exploring the night sky. With a very high light collection capacity it is an easy matter to undertake excursions into the world of deep-sky objects. Whether it is Saturn with its ring systems, or the Ring Nebula 2300 light years away with its diaphanous ring - with the Omegon 130/920 even more is possible!",
-   "price": 229.00,
-   "brand": "Omegon",
-   "telescope_type_id": 1,
-   "image": "./src/public/images/Omegon-Telescope-N-130-920-EQ-3.jpg"
-  },
-  {
-   "name": "Advanced Telescope 130/650 EQ-320",
-   "description": "The telescope for beginners. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
-   "price": 399.00,
-   "brand": "Omegon",
-   "telescope_type_id": 1,
-   "image": "./src/public/images/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
-  },
-  {
-   "name": "Advanced Telescope 150/750 EQ-320",
-   "description": "The telescope for begginers. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
-   "price": 499.00,
-   "brand": "Omegon",
-   "telescope_type_id": 1,
-   "image": "./src/public/images/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
-  },
-  {
    "name": "Telescope AC 70/700 AZ-2",
    "description": "The Omegon AC 70/700 telescope is your first taste of the world of astronomy. Practical observing with it is so simple that it highly suitable for children and adults alike.",
    "price": 99.00,
    "brand": "Omegon",
    "telescope_type_id": 2,
+   "optical_design_id": 1,
    "image": "./src/public/images/Omegon-Telescope-AC-70-700-AZ-2.jpg"
   },
   {
@@ -82,6 +69,7 @@
    "price": 305.00,
    "brand": "Omegon",
    "telescope_type_id": 2,
+   "optical_design_id": 1,
    "image": "./src/public/images/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
   },
   {
@@ -90,6 +78,7 @@
    "price": 99.00,
    "brand": "Omegon",
    "telescope_type_id": 2,
+   "optical_design_id": 1,
    "image": "./src/public/images/Omegon-Telescope-AC-60-700-AZ-1.jpg"
   },
   {
@@ -98,7 +87,62 @@
    "price": 139.00,
    "brand": "Skywatcher",
    "telescope_type_id": 2,
+   "optical_design_id": 1,
    "image": "./src/public/images/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
+  },
+  {
+   "name": "Apochromatic refractor AP 80/600 EvoStar ED OTA",
+   "description": "This wide field refractor is of course an ideal telescope for wide field observing, providing a compact portable telescope giving a sharp, high-contrast image for taking with you on holiday. With an 80mm aperture and 600mm focal length, this doublet ED telescope has high performance optics, offering astrophotographers a fast optical system with its f 7.5 aperture ratio. The use of FPL-53 ED glass means that there is almost no colour aberration. ED glass (extra low dispersion) has very low colour dispersion and a low refractive index. Excellent correction of chromatic aberration is achieved by the combination of this special glass with other optical glass. Improved contrast is achieved by the use of crown glass from the German firm of Schott. The metallic high transmission coating applied to the lenses ensures high light transmission. Photographers get their money's worth, as objects such as the Andromeda Galaxy or the famous Pleiades open cluster work particularly well at this focal length. The tube is equipped with a robust 2 inch Crayford focuser with 1:11 ratio for fine focusing - especially important for astrophotography. The telescope can be used as a guide scope and as an ideal second imaging device for astrophotographers. It is ideal to use with an autoguider due to its short focal length. The refractor can also be turned into a powerful spotting scope for nature observing by the connection of suitable accessories. Also, the telescope is visually a little gem, boasting an elegant design of the highest calibre, with the tube and finder scope gleaming in an aesthetically pleasing tone of black and the white dew shield and the tube rings acting as stylish contrasting elements within the overall design.",
+   "price": 754.95,
+   "brand": "Skywatcher",
+   "telescope_type_id": 2,
+   "optical_design_id": 2,
+   "image": "../src/public/images/Skywatcher-Apochromatic-refractor-AP-80-600-EvoStar-ED-OTA.jpg"
+  },
+  {
+   "name": "Telescope N 150/750 EQ-3",
+   "description": "The Omegon 150/750 EQ-3 Newtonian Reflector is an ideal telescope for beginners in astronomy. This telescope features good optics and a very stable mount.",
+   "price": 279.00,
+   "brand": "Omegon",
+   "telescope_type_id": 1,
+   "optical_design_id": 3,
+   "image": "./src/public/images/Omegon-Telescope-N-150-750-EQ-3.jpg"
+  },
+  {
+   "name": "Telescope N 130/920 EQ-2",
+   "description": "The Omegon 130/920 EQ-3 telescope is just the right telescope for taking your first steps in exploring the night sky. With a very high light collection capacity it is an easy matter to undertake excursions into the world of deep-sky objects. Whether it is Saturn with its ring systems, or the Ring Nebula 2300 light years away with its diaphanous ring - with the Omegon 130/920 even more is possible!",
+   "price": 229.00,
+   "brand": "Omegon",
+   "telescope_type_id": 1,
+   "optical_design_id": 3,
+   "image": "./src/public/images/Omegon-Telescope-N-130-920-EQ-3.jpg"
+  },
+  {
+   "name": "Advanced Telescope 130/650 EQ-320",
+   "description": "The telescope for beginners. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
+   "price": 399.00,
+   "brand": "Omegon",
+   "telescope_type_id": 1,
+   "optical_design_id": 3,
+   "image": "./src/public/images/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
+  },
+  {
+   "name": "Advanced Telescope 150/750 EQ-320",
+   "description": "The telescope for begginers. As a fan of the cosmos you’d like to take a look beyond our borders. To see stars, planets and nebulae that give you an impression of the vastness of space? Now you can experience it - without yet being an expert on the sky. This entry-level telescope is easy to use, but so powerful that you can see nebulae that are many light years away. Your travels in the Universe begin now - from your balcony or garden.",
+   "price": 499.00,
+   "brand": "Omegon",
+   "telescope_type_id": 1,
+   "optical_design_id": 3,
+   "image": "./src/public/images/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
+  },
+  {
+   "name": "Maksutov telescope MC 127/1500 NexStar 127 SLT GoTo",
+   "description": "The brand new NexStar SLT series with SkyAlign technology offers computerized GoTo telescopes with a multilingual menu and huge database, as well as being excellent value for money. The fully assembled ready-to-use tripod and quick-release couplings for connection to the fork mount, as well as the OTA on a fork arm allow setting up in just a few minutes - without the need of any tools! A huge range of celestial objects are available to observe, and the computer can also select the best objects to observe month by month.",
+   "price": 779.95,
+   "brand": "Celestron",
+   "telescope_type_id": 1,
+   "optical_design_id": 4,
+   "image": "./src/public/images/Celestron-Maksutov-telescope-MC-127-1500-NextStar-127-SLT-GoTo.jpg"
   }
  ],
  "mounts": [
