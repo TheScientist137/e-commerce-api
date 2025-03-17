@@ -61,7 +61,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "./src/public/images/Omegon-Telescope-AC-70-700-AZ-2.jpg"
+   "image": "../../public/images/telescopes/Omegon-Telescope-AC-70-700-AZ-2.jpg"
   },
   {
    "name": "Telescope AC 90/1000 EQ-2",
