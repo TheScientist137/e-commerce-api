@@ -7,7 +7,7 @@ export const authenticateJWT = (req, res, next) => {
  if (!authHeader || !authHeader.startsWith("Bearer "))
   return res.status(401).json({ message: 'Unauthorized: No token provided' });
 
- // Extract token (eliminate Bearer)
+ // Extract token ( and eliminate Bearer)
  const token = authHeader.split(' ')[1];
 
  try {

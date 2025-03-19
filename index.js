@@ -7,6 +7,8 @@ import 'dotenv/config';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Serve static files (images)
+
 app.use(express.json());
 app.use(cors({ // Cross Origin Resource Sharing
  origin: 'http://localhost:5173', // Frontend URL
