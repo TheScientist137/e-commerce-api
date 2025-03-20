@@ -1,9 +1,9 @@
 import fs from "fs";
-import pool from "../config/db.js";
+import pool from "./src/config/db.js";
 import bcrypt from 'bcrypt';
 
 // Read JSON file and save conent on data
-const data = JSON.parse(fs.readFileSync('./src/seed.json', 'utf-8'));
+const data = JSON.parse(fs.readFileSync('./seed.json', 'utf-8'));
 console.log(data);
 
 // IMPROVE THIS FUNCTIONS
@@ -66,12 +66,12 @@ const insertMounts = async () => {
  for (const mount of data.mounts) {
   await pool.query(
    `INSERT INTO mounts 
-    (name, description, price, brand, mount_type_id, optical_design_id, image) 
-    VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+    (name, description, price, brand, mount_type_id, image) 
+    VALUES ($1, $2, $3, $4, $5, $6)`,
    [
     mount.name,
     mount.description,
-    mount.price, 
+    mount.price,
     mount.brand,
     mount.mount_type_id,
     mount.image

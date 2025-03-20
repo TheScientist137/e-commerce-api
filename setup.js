@@ -1,7 +1,7 @@
 import fs from "fs";
-import pool from "../config/db.js";
+import pool from "./src/config/db.js";
 
-const schema = fs.readFileSync("./scripts/schema.sql", "utf-8");
+const schema = fs.readFileSync("./schema.sql", "utf-8");
 
 const setupDatabase = async () => {
  try {

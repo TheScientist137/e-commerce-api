@@ -17,7 +17,7 @@
    "description": "A refracting telescope (also called a refractor) is a type of optical telescope that uses a lens as its objective to form an image (also referred to a dioptric telescope)."
   }
  ],
- "optical_design": [
+ "optical_designs": [
   {
    "type": "Achromat",
    "description": "Achromats represent the classic, popular, modern lens telescope design. An achromat consists of not one but of two objective lenses, usually made of crown glass and flint glass, and have the effect of a positive and a negative lens."
@@ -190,6 +190,7 @@
    "name": "Mount EQ3-2",
    "description": "This mount is a further development of the EQ-3 mount designed in white. It provides a stable base for most medium-sized optics and is ideal for exploring the night sky. Once you have aligned the parallactic mount with the Pole Star, you can easily sight on an object, adjust it in the field of view and track it using the flexible slow-motions. Fine adjustment is possible in both right ascension and declination. The polar elevation at the observing site can be set using the fine scale provided and adjusted perfectly by using two screws. Both polar finder and electric motors plus a control can be retrofitted to both axes: the EQ3-2 is suitable not only for visual observing, but also for getting started in astrophotography. With optional add-ons such as the motor kit or GoTo upgrade kit, long exposure astrophotography also becomes possible. With a little practice, you will soon be able to produce successful images of galaxies and nebulae.",
    "price": 325.00,
+   "brand": "Skywatcher",
    "mount_type_id": 3,
    "image": "../../public/images/mounts/Skywatcher-Mount-EQ3-2.jpg"
   },
@@ -205,6 +206,7 @@
    "name": "Mount HEQ-5 Pro SynScan GoTo",
    "description": "The high-quality parallactic HEQ-5 Pro GoTo mount turns your telescope into a precision instrument for exciting and fascinating astronomical observing. The extensive equipment included with the HEQ-5 Pro GoTo mount includes a polar finder for easily aligning the telescope to the correct position in the sky, aluminium right ascension and declination scales and electric tracking motors on both axes. So you only need to align the parallactic mount to the celestial North Pole before observing and then let your telescope track via the motors - ideal for getting started in astrophotography! The mount weighs 7.4 kg and is much more stable than the simpler EQ-5 mount. The HEQ-5 Pro GoTo also damps down vibrations much more quickly.",
    "price": 1145.00,
+   "brand": "Skywatcher",
    "mount_type_id": 4,
    "image": "../../public/images/mounts/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
   }
