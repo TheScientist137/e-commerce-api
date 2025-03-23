@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files (images) form public folder
-app.use('/images', express.static(path.join(__dirname, './public/images')));
+app.use('/images', express.static(path.join(__dirname, '/public/images')));
 
 app.use(express.json());
 app.use(cors({ // Cross Origin Resource Sharing

@@ -61,7 +61,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "../../public/images/telescopes/Omegon-Telescope-AC-70-700-AZ-2.jpg"
+   "image": "/images/telescopes/Omegon-Telescope-AC-70-700-AZ-2.jpg"
   },
   {
    "name": "Telescope AC 90/1000 EQ-2",
@@ -70,7 +70,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "../../public/images/telescopes/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
+   "image": "/images/telescopes/Omegon-Telescope-AC-90-1000-EQ-2.jpg"
   },
   {
    "name": "Telescope AC 60/700 AZ-1",
@@ -79,7 +79,7 @@
    "brand": "Omegon",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "../../public/images/telescopes/Omegon-Telescope-AC-60-700-AZ-1.jpg"
+   "image": "/images/telescopes/Omegon-Telescope-AC-60-700-AZ-1.jpg"
   },
   {
    "name": "Telescope AC 70/700 Mercury AZ-2",
@@ -88,7 +88,7 @@
    "brand": "Skywatcher",
    "telescope_type_id": 2,
    "optical_design_id": 1,
-   "image": "../../public/images/telescopes/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
+   "image": "/images/telescopes/Skywatcher-Telescope-AC-70-700-Mercury-AZ-2.jpg"
   },
   {
    "name": "Apochromatic refractor AP 80/600 EvoStar ED OTA",
@@ -97,7 +97,7 @@
    "brand": "Skywatcher",
    "telescope_type_id": 2,
    "optical_design_id": 2,
-   "image": "../../public/images/telescopes/Skywatcher-Apochromatic-refractor-AP-80-600-EvoStar-ED-OTA.jpg"
+   "image": "/images/telescopes/Skywatcher-Apochromatic-refractor-AP-80-600-EvoStar-ED-OTA.jpg"
   },
   {
    "name": "Telescope N 150/750 EQ-3",
@@ -106,7 +106,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "../../public/images/telescopes/Omegon-Telescope-N-150-750-EQ-3.jpg"
+   "image": "/images/telescopes/Omegon-Telescope-N-150-750-EQ-3.jpg"
   },
   {
    "name": "Telescope N 130/920 EQ-2",
@@ -115,7 +115,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "../../public/images/telescopes/Omegon-Telescope-N-130-920-EQ-3.jpg"
+   "image": "/images/telescopes/Omegon-Telescope-N-130-920-EQ-3.jpg"
   },
   {
    "name": "Advanced Telescope 130/650 EQ-320",
@@ -124,7 +124,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "../../public/images/telescopes/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
+   "image": "/images/telescopes/Omegon-Advanced-Telescope-130-650-EQ-320.jpg"
   },
   {
    "name": "Advanced Telescope 150/750 EQ-320",
@@ -133,7 +133,7 @@
    "brand": "Omegon",
    "telescope_type_id": 1,
    "optical_design_id": 3,
-   "image": "../../public/images/telescopes/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
+   "image": "/images/telescopes/Omegon-Advanced-Telescope-150-750-EQ-320.jpg"
   },
   {
    "name": "Maksutov telescope MC 127/1500 NexStar 127 SLT GoTo",
@@ -142,7 +142,7 @@
    "brand": "Celestron",
    "telescope_type_id": 1,
    "optical_design_id": 4,
-   "image": "../../public/images/telescopes/Celestron-Maksutov-telescope-MC-127-1500-NextStar-127-SLT-GoTo.jpg"
+   "image": "/images/telescopes/Celestron-Maksutov-telescope-MC-127-1500-NextStar-127-SLT-GoTo.jpg"
   }
  ],
  "mounts": [
@@ -152,7 +152,7 @@
    "price": 199.00,
    "brand": "Omegon",
    "mount_type_id": 1,
-   "image": "../../public/images/mounts/Omegon-Mount-AZ-Baby.jpg"
+   "image": "/images/mounts/Omegon-Mount-AZ-Baby.jpg"
   },
   {
    "name": "Mount AZ-Pronto",
@@ -160,7 +160,7 @@
    "price": 110.00,
    "brand": "Skywatcher",
    "mount_type_id": 1,
-   "image": "../../public/images/mounts/Skywatcher-Mount-AZ-Pronto.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-AZ-Pronto.jpg"
   },
   {
    "name": "Mount Star Discovery AZ SynScan WiFi GoTo",
@@ -168,7 +168,7 @@
    "price": 349.95,
    "brand": "Skywatcher",
    "mount_type_id": 2,
-   "image": "../../public/images/mounts/Skywatcher-Mount-Star-Discovery-AZ-SynScan-WiFi-GoTo.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-Star-Discovery-AZ-SynScan-WiFi-GoTo.jpg"
   },
   {
    "name": "Mount AZ-GTi GoTo WiFi without Tripod",
@@ -176,7 +176,7 @@
    "price": 289.95,
    "brand": "Skywatcher",
    "mount_type_id": 2,
-   "image": "../../public/images/mounts/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-AZ-GTi-GoTo-WiFi-without-Tripod.jpg"
   },
   {
    "name": "Mount EQ5",
@@ -184,7 +184,7 @@
    "price": 369.95,
    "brand": "Skywatcher",
    "mount_type_id": 3,
-   "image": "../../public/images/mounts/Skywatcher-Mount-EQ5.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-EQ5.jpg"
   },
   {
    "name": "Mount EQ3-2",
@@ -192,7 +192,7 @@
    "price": 325.00,
    "brand": "Skywatcher",
    "mount_type_id": 3,
-   "image": "../../public/images/mounts/Skywatcher-Mount-EQ3-2.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-EQ3-2.jpg"
   },
   {
    "name": "Mount EQ6-R Pro SynScan GoTo",
@@ -200,7 +200,7 @@
    "price": 1659.00,
    "brand": "Skywatcher",
    "mount_type_id": 4,
-   "image": "../../public/images/mounts/Skywatcher-Mount-EQ6-R-Pro-SynScan-GoTo.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-EQ6-R-Pro-SynScan-GoTo.jpg"
   },
   {
    "name": "Mount HEQ-5 Pro SynScan GoTo",
@@ -208,7 +208,7 @@
    "price": 1145.00,
    "brand": "Skywatcher",
    "mount_type_id": 4,
-   "image": "../../public/images/mounts/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
+   "image": "/images/mounts/Skywatcher-Mount-HEQ-5-Pro-SynScan-GoTo.jpg"
   }
  ]
 }
