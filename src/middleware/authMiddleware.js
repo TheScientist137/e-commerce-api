@@ -1,4 +1,4 @@
-import { verifyToken } from "../config/jwt.js";
+import jwt from 'jsonwebtoken';
 
 // Auithenticate JasonWebTokens Middleware Controller
 export const authenticateJWT = (req, res, next) => {
@@ -10,9 +10,9 @@ export const authenticateJWT = (req, res, next) => {
  const token = authHeader.split(' ')[1];  // Extract token ( and eliminate Bearer)
 
  try {
-  // Add user info to req.user for next controller
-  const decoded = verifyToken(token);
-  req.user = decoded; // { id, email, role }
+  // Decode user info and add it to req.user for next controller
+  const decoded = jwt.verify(token, process.env.JWT_SECRET)
+  req.user = decoded; // { userId, role }
   
   next(); // Continue with next controller
  } catch (error) {

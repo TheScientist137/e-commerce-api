@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 import pool from "../config/db.js";
-import { generateToken } from "../config/jwt.js";
+// import 'dotenv/config';
 
-const signupController = async (req, res) => {
+const signupController = async (req, res) => { // role: user
   const { name, email, password } = req.body;
 
   if (!name || !email || !password)
@@ -49,8 +50,11 @@ const loginController = async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
 
     // Generate JWT token
-    const token = generateToken({ userId: user.id, role: user.role });
-    console.log(user);
+    const token = jwt.sign(
+      { id: user.id, email: user.email, role: user.role }, // payload
+      process.env.JWT_SECRET, // secret key
+      { expiresIn: '1h' } // expiration time
+    );
 
     res.status(200).json({ message: 'Login succesfully', token, user: user.name, role: user.role });
   } catch (error) {
@@ -66,26 +70,8 @@ const logoutController = (req, res) => {
   }
 }
 
-const currentSessionController = async (req, res) => {
-  try {
-    // Obtain user from authenticateJWT middleware
-    const currentUser = req.user;
-    if (!currentUser) return res.status(401).json({ message: 'Not authenticated' });
-
-    // Obtain additional user info from db
-    const userQuery = await pool.query('SELECT id, name, email FROM users WHERE id = $1',
-      [currentUser.userId]);
-    const user = userQuery.rows[0];
-
-    res.status(200).json({ user: user });
-  } catch (error) {
-
-  }
-}
-
 export default {
   signupController,
   loginController,
   logoutController,
-  currentSessionController
 };
