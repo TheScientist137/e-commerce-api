@@ -25,7 +25,7 @@ app.use(cors({ // Cross Origin Resource Sharing
 
 app.use('/api/auth', authRoutes); // Authentication Routes
 app.use('/api/shop', shopRoutes); // Shop Routes
-app.use('/api/admin', adminRoutes);
+app.use('/api/admin', adminRoutes); // Admin routes
 
 app.listen(PORT, () => {
  console.log(`App listening on port: ${PORT}`);
