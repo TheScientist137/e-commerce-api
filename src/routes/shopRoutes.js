@@ -1,12 +1,11 @@
 import express from 'express';
-import shopControllers from '../controllers/shopControllers.js';
+import { showTelescopesController, showMountsController } from '../controllers/shopControllers';
 
 const router = express.Router();
 
-// Apply authmiddleware to specified routes
-// router.use(authenticateJWT);
+// Apply auth authmiddleware to specified routes
 
-router.get('/telescopes', shopControllers.showTelescopesController);
-router.get('/mounts', shopControllers.showMountsController);
+router.get('/telescopes', showTelescopesController);
+router.get('/mounts', showMountsController);
 
 export default router;

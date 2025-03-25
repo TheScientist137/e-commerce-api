@@ -1,6 +1,6 @@
 import pool from "../config/db.js";
 
-const showTelescopesController = async (req, res) => {
+export const showTelescopesController = async (req, res) => {
   try {
     const telescopesQuery = await pool.query(`
         SELECT 
@@ -27,7 +27,7 @@ const showTelescopesController = async (req, res) => {
   }
 };
 
-const showMountsController = async (req, res) => {
+export const showMountsController = async (req, res) => {
   try {
     const mountsQuery = await pool.query(`
         SELECT 
@@ -51,7 +51,3 @@ const showMountsController = async (req, res) => {
   }
 };
 
-export default {
-  showTelescopesController,
-  showMountsController,
-};

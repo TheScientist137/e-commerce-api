@@ -1,13 +1,10 @@
 import express from 'express';
-import authControllers from '../controllers/authControllers.js';
-import { authenticateJWT } from '../middleware/authMiddleware.js';
+import { signupController, loginController, logoutController } from '../controllers/authControllers.js';
 
 const router = express.Router();
 
-// Check aunthentication 
-
-router.post('/signup', authControllers.signupController);
-router.post('/login', authControllers.loginController);
-router.post('/logout', authControllers.logoutController);
+router.post('/signup', signupController);
+router.post('/login', loginController);
+router.post('/logout', logoutController);
 
 export default router;

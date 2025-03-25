@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import pool from "../config/db.js";
 // import 'dotenv/config';
 
-const signupController = async (req, res) => { // role: user
+export const signupController = async (req, res) => { // role: user
   const { name, email, password } = req.body;
 
   if (!name || !email || !password)
@@ -23,13 +23,15 @@ const signupController = async (req, res) => { // role: user
     );
     const newUser = newUserQuery.rows[0];
 
+    // Iniciamos sesion directamente??????
+
     res.status(201).json({ message: 'Success registration', user: newUser });
   } catch (error) {
     res.status(500).json({ message: 'Error in registration', error: error.message });
   }
 }
 
-const loginController = async (req, res) => {
+export const loginController = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password)
@@ -56,22 +58,16 @@ const loginController = async (req, res) => {
       { expiresIn: '1h' } // expiration time
     );
 
-    res.status(200).json({ message: 'Login succesfully', token, user: user.name, role: user.role });
+    res.status(200).json({ message: 'Login succesfully', token, email: user.email, role: user.role });
   } catch (error) {
     res.status(500).json({ message: 'Error during login', error: error.message });
   }
 }
 
-const logoutController = (req, res) => {
+export const logoutController = (req, res) => {
   try {
     res.status(200).json({ message: 'Loggued out succesfully' })
   } catch (error) {
     res.status(500).json({ message: 'Error during logout', error: error.message });
   }
 }
-
-export default {
-  signupController,
-  loginController,
-  logoutController,
-};

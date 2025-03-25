@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './src/routes/authRoutes.js';
 import shopRoutes from './src/routes/shopRoutes.js';
+import adminRoutes from './src/routes/adminRoutes.js';
 import 'dotenv/config';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +25,7 @@ app.use(cors({ // Cross Origin Resource Sharing
 
 app.use('/api/auth', authRoutes); // Authentication Routes
 app.use('/api/shop', shopRoutes); // Shop Routes
+app.use('/api/admin', adminRoutes);
 
 app.listen(PORT, () => {
  console.log(`App listening on port: ${PORT}`);
