@@ -12,7 +12,7 @@ const signupController = async (req, res) => {
     // Check if the user already exists in db
     const findUserQuery = await pool.query('SELECT * FROM users WHERE email =  $1', [email]);
     const user = findUserQuery.rows[0];
-    if (user) return res.status(400).json({ message: 'Email already in use' })
+    if (user) return res.status(400).json({ message: 'Email already in use' });
 
     // Hash password and insert new user in db (first position of the array)
     const hashedPassword = await bcrypt.hash(password, 10);
