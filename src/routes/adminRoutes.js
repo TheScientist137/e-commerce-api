@@ -11,13 +11,13 @@ import {
 const router = express.Router();
 
 // Telescopes Routes
-router.post('/new-telescope', authenticateJWT, isAdmin, addTelescopeController);
-router.put('/update-telescope/:id', authenticateJWT, isAdmin, updateTelescopeController);
-router.delete('/delete-telescope/:id', authenticateJWT, isAdmin, deleteTelescopeController);
+router.post('/telescopes', authenticateJWT, isAdmin, addTelescopeController);
+router.put('/telescopes/:id', authenticateJWT, isAdmin, updateTelescopeController);
+router.delete('/telescopes/:id', authenticateJWT, isAdmin, deleteTelescopeController);
 
 // Mounts Routes
-router.post('/new-mount', authenticateJWT, isAdmin, addMountController);
-router.put('/update-mount/:id', authenticateJWT, isAdmin, updateMountController);
-router.delete('/delete-mount/:id', authenticateJWT, isAdmin, deleteMountController);
+router.post('/mounts', authenticateJWT, isAdmin, addMountController);
+router.put('/mounts/:id', authenticateJWT, isAdmin, updateMountController);
+router.delete('/mounts/:id', authenticateJWT, isAdmin, deleteMountController);
 
 export default router;
