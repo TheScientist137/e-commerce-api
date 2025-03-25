@@ -1,5 +1,6 @@
 import pool from "../config/db.js";
 
+// SELECT TELESCOPES
 export const showTelescopesController = async (req, res) => {
   try {
     const telescopesQuery = await pool.query(`
@@ -23,10 +24,11 @@ export const showTelescopesController = async (req, res) => {
     res.status(200).json({ message: "Telescopes retrieved succesfully", telescopes });
   } catch (error) {
     console.error("Error retrieving telescopes", error);
-    res.status(500).json({ message: "Error retrieving telescopes", error });
+    res.status(500).json({ message: 'Server error' });
   }
 };
 
+// SELECT MOUNTS
 export const showMountsController = async (req, res) => {
   try {
     const mountsQuery = await pool.query(`

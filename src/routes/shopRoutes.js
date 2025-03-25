@@ -1,5 +1,5 @@
 import express from 'express';
-import { showTelescopesController, showMountsController } from '../controllers/shopControllers';
+import { showTelescopesController, showMountsController } from '../controllers/shopControllers.js';
 
 const router = express.Router();
 
