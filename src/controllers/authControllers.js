@@ -78,15 +78,15 @@ export const getCurrentUserController = async (req, res) => {
 
   try {
     const user = await pool.query(
-      'SELECT id, name, email, role FROM users WHERE id = $1',
+      'SELECT id, name, email, role, cart FROM users WHERE id = $1',
       [userId]);
 
     if (user.rows.length === 0) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.json(user.rows[0]);
+    res.json({ message: 'User obtained succesfully', result: user.rows[0] });
   } catch (error) {
     console.error('Error obtaining current user', error);
     res.status(500).json({ message: 'Server error - Error obtaining current user' });
   }
-} 
+}

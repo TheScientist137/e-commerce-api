@@ -4,7 +4,8 @@ CREATE TABLE users (
  name VARCHAR(255) NOT NULL,
  email VARCHAR(255) UNIQUE NOT NULL,
  hashedPassword VARCHAR(255) NOT NULL,
- role VARCHAR(255) DEFAULT 'user' NOT NULL
+ role VARCHAR(255) DEFAULT 'user' NOT NULL,
+ cart JSONB DEFAULT '[]'::JSONB NOT NULL
 );
 
 -- telescope_types table

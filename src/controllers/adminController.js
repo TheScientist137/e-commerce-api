@@ -13,7 +13,7 @@ export const addTelescopeController = async (req, res) => {
     );
     const newTelescope = addTelescopeQuery.rows[0];
 
-    res.status(201).json({ message: 'New telescope added succesfully', newTelescope });
+    res.status(201).json(newTelescope);
   } catch (error) {
     console.error('Error adding new telescope', error);
     res.status(500).json({ message: 'Server error - Error adding telescope' });
@@ -41,6 +41,9 @@ export const updateTelescopeController = async (req, res) => {
       RETURNING *`,
       [name, description, price, brand, telescope_type_id, optical_design_id, image, id]
     );
+    if (updateTelescopeQuery.rows.length === 0) {
+      return res.status(404).json({ message: 'Telescope not found' });
+    }
     const newTelescope = updateTelescopeQuery.rows[0];
 
     res.status(200).json({ message: 'Telescope updated succesfully', newTelescope });
@@ -69,13 +72,13 @@ export const addMountController = async (req, res) => {
 
   try {
     const addMountQuery = await pool.query(`
-      INSERT INTO mounts (name. description, price, brand, mount_type_id, image)
+      INSERT INTO mounts (name, description, price, brand, mount_type_id, image)
       VALUES ($1, $2, $3, $4, $5, $6) 
       RETURNING *`,
       [name, description, price, brand, mount_type_id, image]
     );
     const newMount = addMountQuery.rows[0];
-    res.status(201).json({ message: 'New mount added succesfully', newMount });
+    res.status(201).json(newMount);
 
   } catch (error) {
     console.error('Error adding new mount', error);

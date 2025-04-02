@@ -5,6 +5,7 @@ const router = express.Router();
 
 // Apply auth authmiddleware to specified routes
 
+// Shop Routes
 router.get('/telescopes', showTelescopesController);
 router.get('/mounts', showMountsController);
 
