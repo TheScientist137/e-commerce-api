@@ -15,13 +15,16 @@ export const showTelescopesController = async (req, res) => {
           telescope_types.description AS telescope_type_description,
           optical_designs.type AS optical_design_type,
           optical_designs.description AS optical_design_description
-        FROM telescopes
-        INNER JOIN telescope_types ON telescopes.telescope_type_id = telescope_types.id
-        INNER JOIN optical_designs ON telescopes.optical_design_id = optical_designs.id
+        FROM products
+        JOIN telescopes ON products.id = telescope.product_id
+        JOIN telescope_types ON telescopes.telescope_type_id = telescope_types.id
+        JOIN optical_designs ON telescopes.optical_design_id = optical_designs.id
+        WHERE products.product_type = 'telescope'
     `);
-    const telescopes = telescopesQuery.rows;
 
-    res.status(200).json({ message: "Telescopes retrieved succesfully", telescopes });
+    res.status(200).json({ 
+      message: "Telescopes retrieved succesfully", 
+      telescopes: telescopesQuery.rows });
   } catch (error) {
     console.error("Error retrieving telescopes", error);
     res.status(500).json({ message: 'Server error' });
@@ -41,15 +44,18 @@ export const showMountsController = async (req, res) => {
           mounts.image,
           mount_types.type AS mount_type,
           mount_types.description AS mount_type_description
-        FROM mounts
-        INNER JOIN mount_types ON mounts.mount_type_id = mount_types.id
+        FROM products
+        JOIN mounts ON products.id = mounts.product_id
+        JOIN mount_types ON mounts.mount_type_id = mount_types.id
+        WHERE products.product_type = 'mount'
     `);
-    const mounts = mountsQuery.rows;
 
-    res.status(200).json({ message: "Mounts retrieved succesfully", mounts });
+    res.status(200).json({ 
+      message: "Mounts retrieved succesfully", 
+      mounts: mountsQuery.rows });
   } catch (error) {
-    console.error("Erorr retrieving mounts");
-    res.status(500).json({ message: 'Error retrieving mounts', error });
+    console.error("Erorr retrieving mounts", error);
+    res.status(500).json({ message: 'Server error' });
   }
 };
 
