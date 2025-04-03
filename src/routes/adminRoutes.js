@@ -1,12 +1,14 @@
 import express from 'express';
 import { authenticateJWT, isAdmin } from '../middleware/authMiddleware.js';
 import { 
- addTelescopeController, 
- updateTelescopeController,
- deleteTelescopeController,
  addMountController,
  updateMountController,
- deleteMountController } from '../controllers/adminController.js';
+ deleteMountController } from '../controllers/mountsController.js';
+import {
+ addTelescopeController,
+ updateTelescopeController,
+ deleteTelescopeController
+} from '../controllers/telescopesController.js';
 
 const router = express.Router();
 
