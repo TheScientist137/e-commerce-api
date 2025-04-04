@@ -5,10 +5,9 @@ import pool from "../config/db.js";
 
 export const signupController = async (req, res) => { // role: user
   const { name, email, password } = req.body;
-
-  if (!name || !email || !password)
+  if (!name || !email || !password) {
     return res.status(400).json({ message: 'All fields are required' });
-
+  }
   try {
     // Check if the user already exists in db
     const findUserQuery = await pool.query('SELECT * FROM users WHERE email =  $1', [email]);
