@@ -46,7 +46,9 @@ export const addTelescopeController = async (req, res) => {
     price,
     brand,
     telescope_type_id,
-    optical_design_id, image } = req.body;
+    optical_design_id,
+    image
+  } = req.body;
   try {
     // Create new product
     const baseProduct = await createBaseProductController({

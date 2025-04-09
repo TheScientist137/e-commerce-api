@@ -14,7 +14,6 @@ export const getProductByIdController = async (req, res) => {
   }
 }
 
-// Crear show products controller 
 export const getProductsController = async (req, res) => {
   try {
     const query = await pool.query(
@@ -76,4 +75,8 @@ export const deleteBaseProductController = async (id) => {
   } catch (error) {
     console.error('Error deleting base product', error);
   }
+}
+
+export const createProductController = async (req, res) => {
+  
 }
