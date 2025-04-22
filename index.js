@@ -10,11 +10,15 @@ import 'dotenv/config';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(fileUpload());
+app.use(fileUpload({
+ useTempFiles: true,
+ tempFileDir: '/tmp/'
+}));
 app.use(express.json());
 app.use(cors({ // Cross Origin Resource Sharing
  origin: 'http://localhost:5173', // Frontend URL
- credentials: true // Allow credentials (cookies, Authorization headers)
+ credentials: true, // Allow credentials (cookies, Authorization headers)
+ allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use('/api/auth', authRoutes); // Authentication Routes

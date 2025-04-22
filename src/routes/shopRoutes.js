@@ -14,12 +14,3 @@ router.get('/telescopes', getTelescopesController);
 router.get('/mounts', getMountsController);
 
 export default router;
-
-
-
-
-
-
-
-
-
