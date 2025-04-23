@@ -34,7 +34,7 @@ export const getProductByIdController = async (req, res) => {
       product: query.rows[0]
     });
   } catch (error) {
-    console.error('Error obtaining product', error);
+    console.error('Error retrieving product', error);
     res.status(404).json({ message: 'Server error' })
   }
 }
@@ -109,3 +109,32 @@ export const getMountsController = async (req, res) => {
   }
 };
 
+// products types controller
+export const getProductsTypesController = async (req, res) => {
+  try {
+    const telescopeTypesQuery = await pool.query('SELECT id, type, description FROM telescope_types');
+    const opticalDesignsQuery = await pool.query('SELECT id, type, description FROM optical_designs');
+    const mountTypesQuery = await pool.query('SELECT id, type, description FROM mount_types');
+
+    if (telescopeTypesQuery.rows.length === 0) {
+      throw new Error('Telescope types not found');
+    }
+    if (opticalDesignsQuery.rows.length === 0) {
+      throw new Error('Optical designs not found');
+    }
+    if (mountTypesQuery.rows.length === 0) {
+      throw new Error('Mount types not found');
+    }
+
+    res.status(200).json({
+      message: 'Types retrieved succesfully',
+      types: {
+        telescopeTypes: telescopeTypesQuery.rows,
+        opticalDesigns: opticalDesignsQuery.rows,
+        mountTypes: mountTypesQuery.rows
+      }
+    });
+  } catch (error) {
+    console.error('Error obtainin')
+  }
+}
