@@ -1,5 +1,5 @@
+import { deleteImage, uploadImage } from "../cloudinary.js";
 import pool from "../config/db.js";
-import { uploadImage, deleteImage } from "../cloudinary.js";
 
 export const addProductController = async (req, res) => {
   const { image } = req.files;
@@ -51,7 +51,7 @@ export const addProductController = async (req, res) => {
        (name, description, brand, price, image, image_public_id, product_type)
      VALUES ($1, $2, $3, $4, $5, $6, $7)
      RETURNING *`,
-      [name, description, brand, price, imageUrl, imagePublicId, product_type],
+      [name, description, brand, price, imageUrl, imagePublicId, product_type]
     );
     const newProduct = query.rows[0];
     // Insert specific product type data
@@ -61,7 +61,7 @@ export const addProductController = async (req, res) => {
        INSERT INTO telescopes
          (product_id, telescope_type_id, optical_design_id)
        VALUES ($1, $2, $3)`,
-        [newProduct.id, telescope_type_id, optical_design_id],
+        [newProduct.id, telescope_type_id, optical_design_id]
       );
     } else if (product_type === "mount") {
       await pool.query(
@@ -69,7 +69,7 @@ export const addProductController = async (req, res) => {
        INSERT INTO mounts
          (product_id, mount_type_id)
        VALUES ($1, $2)`,
-        [newProduct.id, mount_type_id],
+        [newProduct.id, mount_type_id]
       );
     }
     res.status(201).json({
@@ -101,7 +101,7 @@ export const updateProductController = async (req, res) => {
     const checkProduct = await pool.query(
       `
      SELECT * FROM products WHERE id = $1`,
-      [id],
+      [id]
     );
     if (checkProduct.rows.length === 0) {
       return res.status(404).json({ message: "Product not found" });
@@ -138,7 +138,7 @@ export const updateProductController = async (req, res) => {
         newImagePublicId,
         product_type,
         id,
-      ],
+      ]
     );
     // Update specific product type data
     if (product_type === "telescope") {
@@ -149,7 +149,7 @@ export const updateProductController = async (req, res) => {
          optical_design_id = $2
        WHERE product_id = $3
        RETURNING *`,
-        [telescope_type_id, optical_design_id, id],
+        [telescope_type_id, optical_design_id, id]
       );
     } else if (product_type === "mount") {
       await pool.query(
@@ -158,7 +158,7 @@ export const updateProductController = async (req, res) => {
          mount_type_id = $1
        WHERE product_id = $2
        RETURNING *`,
-        [mount_type_id, id],
+        [mount_type_id, id]
       );
     }
 
@@ -181,7 +181,7 @@ export const deleteProductController = async (req, res) => {
     const checkProduct = await pool.query(
       `
      SELECT * FROM products WHERE id = $1`,
-      [id],
+      [id]
     );
     if (checkProduct.rows.length === 0) {
       return res.status(404).json({ message: "Product not found" });
