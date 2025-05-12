@@ -16,7 +16,7 @@ app.use(fileUpload({
 }));
 app.use(express.json());
 app.use(cors({ // Cross Origin Resource Sharing
- origin: 'http://localhost:5174', // Frontend URL
+ origin: 'http://localhost:5173', // Frontend URL
  credentials: true, // Allow credentials (cookies, Authorization headers)
  allowedHeaders: ['Content-Type', 'Authorization']
 }));

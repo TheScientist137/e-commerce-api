@@ -1,5 +1,6 @@
 import pool from "../config/db.js";
 
+// Get products controllers
 export const getProductsController = async (req, res) => {
   try {
     const query = await pool.query(`
@@ -21,54 +22,152 @@ export const getProductsController = async (req, res) => {
   }
 };
 
-// products types controller
-// IMPROVE CONTROLLER
-export const getProductsTypesController = async (req, res) => {
-  // Cambiar a Promise.All() ?????
-  // Product Types Queries
+export const getTelescopesController = async (req, res) => {
   try {
-    const telescopeTypesQuery = await pool.query(
-      "SELECT id, type, description FROM telescope_types ORDER BY id"
+    // Obtain base products => telescopes
+    const baseTelescopesQuery = await pool.query(`
+      SELECT *
+      FROM products
+      WHERE products.product_type = 'telescope'
+      ORDER BY products.created_at DESC
+    `);
+    const baseTelescopes = baseTelescopesQuery.rows;
+    //Obtain telescopes specific info
+    const productsId = baseTelescopes.map((product) => product.id);
+    const telescopesInfoQuery = await pool.query(
+      `
+      SELECT *
+      FROM telescopes
+      WHERE product_id = ANY($1)
+    `,
+      [productsId]
     );
-    const opticalDesignsQuery = await pool.query(
-      "SELECT id, type, description FROM optical_designs ORDER BY id"
-    );
-    const telescopeMountTypesQuery = await pool.query(
-      "SELECT id, type, description FROM telescope_mount_types ORDER BY id"
-    );
-    const mountTypesQuery = await pool.query(
-      "SELECT id, type, description FROM mount_types ORDER BY id"
-    );
+    const telescopesInfo = telescopesInfoQuery.rows;
+    // Combine telescopes data
+    const telescopes = baseTelescopes.map((telescope) => {
+      const telescopeData = telescopesInfo.find(
+        (info) => info.product_id === telescope.id
+      );
+      return { ...telescope, telescopeData };
+    });
 
-    // Validate Quieries
-    if (telescopeTypesQuery.rows.length === 0) {
-      throw new Error("Telescope types not found");
-    }
-    if (opticalDesignsQuery.rows.length === 0) {
-      throw new Error("Optical designs not found");
-    }
-    if (mountTypesQuery.rows.length === 0) {
-      throw new Error("Mount types not found");
-    }
-    if (telescopeMountTypesQuery.rows.length === 0) {
-      throw new Error("Mount types not found");
-    }
-
-    // Response
     res.status(200).json({
-      message: "Types retrieved succesfully",
-      types: {
-        telescopeTypes: telescopeTypesQuery.rows,
-        opticalDesigns: opticalDesignsQuery.rows,
-        telescopeMountTypes: telescopeMountTypesQuery.rows,
-        mountTypes: mountTypesQuery.rows,
-      },
+      message: "Telescopes retrieved succesfully",
+      count: telescopes.length,
+      telescopes: telescopes,
     });
   } catch (error) {
-    console.error("Error obtainin");
+    console.error("Error retrieving telescopes", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
+export const getMountsController = async (req, res) => {
+  try {
+    // Obtain base products => mounts
+    const baseMountsQuery = await pool.query(`
+      SELECT *
+      FROM products
+      WHERE products.product_type = 'mount'
+      ORDER BY products.created_at DESC
+    `);
+    const baseMounts = baseMountsQuery.rows;
+    //Obtain mounts specific info
+    const productsId = baseMounts.map((product) => product.id);
+    const mountsInfoQuery = await pool.query(
+      `
+      SELECT *
+      FROM mounts
+      WHERE product_id = ANY($1)
+    `,
+      [productsId]
+    );
+    const mountsInfo = mountsInfoQuery.rows;
+    // Combine mounts data
+    const mounts = baseMounts.map((mount) => {
+      const mountData = mountsInfo.find((info) => info.product_id === mount.id);
+      return { ...mount, mountData };
+    });
+    res.status(200).json({
+      message: "Mounts retrieved succesfully",
+      count: mounts.length,
+      mounts: mounts,
+    });
+  } catch (error) {
+    console.error("Erorr retrieving mounts", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+export const getEyepiecesController = async (req, res) => {
+  // Obtain base products => eyepieces
+  const baseEyepiecesQuery = await pool.query(`
+    SELECT *
+    FROM products
+    WHERE products.product_type = 'eyepiece'
+    ORDER BY products.created_at DESC
+  `);
+  const baseEyepieces = baseEyepiecesQuery.rows;
+  //Obtain eyepieces specific info
+  const productsId = baseEyepieces.map((product) => product.id);
+  const eyepiecesInfoQuery = await pool.query(
+    `
+    SELECT *
+    FROM eyepieces
+    WHERE product_id = ANY($1)
+  `,
+    [productsId]
+  );
+  // Combine eyepieces data
+  const eyepieces = baseEyepieces.map((eyepiece) => {
+    const eyepieceData = eyepiecesInfoQuery.rows.find(
+      (info) => info.product_id === eyepiece.id
+    );
+    return { ...eyepiece, eyepieceData };
+  });
+
+  res.status(200).json({
+    message: "Eyepieces retrieved succesfully",
+    count: eyepieces.length,
+    eyepieces: eyepieces,
+  });
+};
+
+export const getFiltersController = async (req, res) => {
+  // Obtain base products => filters
+  const baseFiltersQuery = await pool.query(`
+      SELECT *
+      FROM products
+      WHERE products.product_type = 'filter'
+      ORDER BY products.created_at DESC
+    `);
+  const baseFilters = baseFiltersQuery.rows;
+  //Obtain filters specific info
+  const productsId = baseFilters.map((product) => product.id);
+  const filtersInfoQuery = await pool.query(
+    `
+      SELECT *
+      FROM filters
+      WHERE product_id = ANY($1)
+    `,
+    [productsId]
+  );
+  // Combine filters data
+  const filters = baseFilters.map((filter) => {
+    const filterData = filtersInfoQuery.rows.find(
+      (info) => info.product_id === filter.id
+    );
+    return { ...filter, filterData };
+  });
+
+  res.status(200).json({
+    message: "Filters retrieved succesfully",
+    count: filters.length,
+    filters: filters,
+  });
+};
+
+// Get products by id controllers
 export const getProductByIdController = async (req, res) => {
   const { id } = req.params;
 
@@ -354,149 +453,4 @@ export const getFilterByIdController = async (req, res) => {
     console.error("Error retrieving filter", error);
     res.status(500).json({ message: "Server error" });
   }
-};
-
-export const getTelescopesController = async (req, res) => {
-  try {
-    // Obtain base products => telescopes
-    const baseTelescopesQuery = await pool.query(`
-      SELECT *
-      FROM products
-      WHERE products.product_type = 'telescope'
-      ORDER BY products.created_at DESC
-    `);
-    const baseTelescopes = baseTelescopesQuery.rows;
-    //Obtain telescopes specific info
-    const productsId = baseTelescopes.map((product) => product.id);
-    const telescopesInfoQuery = await pool.query(
-      `
-      SELECT *
-      FROM telescopes
-      WHERE product_id = ANY($1)
-    `,
-      [productsId]
-    );
-    const telescopesInfo = telescopesInfoQuery.rows;
-    // Combine telescopes data
-    const telescopes = baseTelescopes.map((telescope) => {
-      const telescopeData = telescopesInfo.find(
-        (info) => info.product_id === telescope.id
-      );
-      return { ...telescope, telescopeData };
-    });
-
-    res.status(200).json({
-      message: "Telescopes retrieved succesfully",
-      count: telescopes.length,
-      telescopes: telescopes,
-    });
-  } catch (error) {
-    console.error("Error retrieving telescopes", error);
-    res.status(500).json({ message: "Server error" });
-  }
-};
-
-export const getMountsController = async (req, res) => {
-  try {
-    // Obtain base products => mounts
-    const baseMountsQuery = await pool.query(`
-      SELECT *
-      FROM products
-      WHERE products.product_type = 'mount'
-      ORDER BY products.created_at DESC
-    `);
-    const baseMounts = baseMountsQuery.rows;
-    //Obtain mounts specific info
-    const productsId = baseMounts.map((product) => product.id);
-    const mountsInfoQuery = await pool.query(
-      `
-      SELECT *
-      FROM mounts
-      WHERE product_id = ANY($1)
-    `,
-      [productsId]
-    );
-    const mountsInfo = mountsInfoQuery.rows;
-    // Combine mounts data
-    const mounts = baseMounts.map((mount) => {
-      const mountData = mountsInfo.find((info) => info.product_id === mount.id);
-      return { ...mount, mountData };
-    });
-    res.status(200).json({
-      message: "Mounts retrieved succesfully",
-      count: mounts.length,
-      mounts: mounts,
-    });
-  } catch (error) {
-    console.error("Erorr retrieving mounts", error);
-    res.status(500).json({ message: "Server error", error });
-  }
-};
-
-export const getEyepiecesController = async (req, res) => {
-  // Obtain base products => eyepieces
-  const baseEyepiecesQuery = await pool.query(`
-    SELECT *
-    FROM products
-    WHERE products.product_type = 'eyepiece'
-    ORDER BY products.created_at DESC
-  `);
-  const baseEyepieces = baseEyepiecesQuery.rows;
-  //Obtain eyepieces specific info
-  const productsId = baseEyepieces.map((product) => product.id);
-  const eyepiecesInfoQuery = await pool.query(
-    `
-    SELECT *
-    FROM eyepieces
-    WHERE product_id = ANY($1)
-  `,
-    [productsId]
-  );
-  // Combine eyepieces data
-  const eyepieces = baseEyepieces.map((eyepiece) => {
-    const eyepieceData = eyepiecesInfoQuery.rows.find(
-      (info) => info.product_id === eyepiece.id
-    );
-    return { ...eyepiece, eyepieceData };
-  });
-
-  res.status(200).json({
-    message: "Eyepieces retrieved succesfully",
-    count: eyepieces.length,
-    eyepieces: eyepieces,
-  });
-};
-
-export const getFiltersController = async (req, res) => {
-  // Obtain base products => filters
-  const baseFiltersQuery = await pool.query(`
-      SELECT *
-      FROM products
-      WHERE products.product_type = 'filter'
-      ORDER BY products.created_at DESC
-    `);
-  const baseFilters = baseFiltersQuery.rows;
-  //Obtain filters specific info
-  const productsId = baseFilters.map((product) => product.id);
-  const filtersInfoQuery = await pool.query(
-    `
-      SELECT *
-      FROM filters
-      WHERE product_id = ANY($1)
-    `,
-    [productsId]
-  );
-  // Combine filters data
-  const filters = baseFilters.map((filter) => {
-    const filterData = filtersInfoQuery.rows.find(
-      (info) => info.product_id === filter.id
-    );
-    return { ...filter, filterData };
-  });
-
-  res.status(200).json({
-    message: "Filters retrieved succesfully",
-    count: filters.length,
-    filters: filters,
-  });
 };
