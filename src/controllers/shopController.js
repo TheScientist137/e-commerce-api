@@ -24,37 +24,34 @@ export const getProductsController = async (req, res) => {
 
 export const getTelescopesController = async (req, res) => {
   try {
-    // Obtain base products => telescopes
-    const baseTelescopesQuery = await pool.query(`
-      SELECT *
+    // JOIN product_filters dos veces con alias diferentes
+    const query = await pool.query(`
+      SELECT 
+        products.*, 
+        optical_filter.name AS optical_design_name,
+        optical_filter.image_url AS optical_design_image,
+        mount_filter.name AS mount_type_name,
+        mount_filter.image_url AS mount_type_image,
+        product_brands.name AS brand_name,
+        product_brands.image_url AS brand_image
       FROM products
+      JOIN telescopes ON telescopes.product_id = products.id
+      JOIN telescope_specs ON telescope_specs.telescope_id = telescopes.id
+      LEFT JOIN product_filters AS optical_filter ON telescope_specs.product_filter_id = optical_filter.id
+      LEFT JOIN product_filters AS mount_filter ON telescope_specs.mount_filter_id = mount_filter.id
+      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'telescope'
       ORDER BY products.created_at DESC
     `);
-    const baseTelescopes = baseTelescopesQuery.rows;
-    //Obtain telescopes specific info
-    const productsId = baseTelescopes.map((product) => product.id);
-    const telescopesInfoQuery = await pool.query(
-      `
-      SELECT *
-      FROM telescopes
-      WHERE product_id = ANY($1)
-    `,
-      [productsId]
-    );
-    const telescopesInfo = telescopesInfoQuery.rows;
-    // Combine telescopes data
-    const telescopes = baseTelescopes.map((telescope) => {
-      const telescopeData = telescopesInfo.find(
-        (info) => info.product_id === telescope.id
-      );
-      return { ...telescope, telescopeData };
-    });
+
+    if (query.rows.length === 0) {
+      throw new Error("Telescopes not found");
+    }
 
     res.status(200).json({
       message: "Telescopes retrieved succesfully",
-      count: telescopes.length,
-      telescopes: telescopes,
+      count: query.rowCount,
+      telescopes: query.rows,
     });
   } catch (error) {
     console.error("Error retrieving telescopes", error);
@@ -64,193 +61,106 @@ export const getTelescopesController = async (req, res) => {
 
 export const getMountsController = async (req, res) => {
   try {
-    // Obtain base products => mounts
-    const baseMountsQuery = await pool.query(`
-      SELECT *
+    // JOIN product_filters dos veces con alias diferentes
+    const query = await pool.query(`
+      SELECT 
+        products.*, 
+        product_filters.name AS build_type_name,
+        product_filters.image_url AS build_type_image,
+        product_brands.name AS brand_name,
+        product_brands.image_url AS brand_image
       FROM products
+      JOIN mounts ON mounts.product_id = products.id
+      JOIN mount_specs ON mount_specs.mount_id = mounts.id
+      LEFT JOIN product_filters ON mount_specs.product_filter_id = product_filters.id
+      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'mount'
       ORDER BY products.created_at DESC
     `);
-    const baseMounts = baseMountsQuery.rows;
-    //Obtain mounts specific info
-    const productsId = baseMounts.map((product) => product.id);
-    const mountsInfoQuery = await pool.query(
-      `
-      SELECT *
-      FROM mounts
-      WHERE product_id = ANY($1)
-    `,
-      [productsId]
-    );
-    const mountsInfo = mountsInfoQuery.rows;
-    // Combine mounts data
-    const mounts = baseMounts.map((mount) => {
-      const mountData = mountsInfo.find((info) => info.product_id === mount.id);
-      return { ...mount, mountData };
-    });
+
+    if (query.rows.length === 0) {
+      throw new Error("Mounts not found");
+    }
+
     res.status(200).json({
       message: "Mounts retrieved succesfully",
-      count: mounts.length,
-      mounts: mounts,
+      count: query.rowCount,
+      mounts: query.rows,
     });
   } catch (error) {
-    console.error("Erorr retrieving mounts", error);
-    res.status(500).json({ message: "Server error", error });
+    console.error("Error retrieving mounts", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
 export const getEyepiecesController = async (req, res) => {
-  // Obtain base products => eyepieces
-  const baseEyepiecesQuery = await pool.query(`
-    SELECT *
-    FROM products
-    WHERE products.product_type = 'eyepiece'
-    ORDER BY products.created_at DESC
-  `);
-  const baseEyepieces = baseEyepiecesQuery.rows;
-  //Obtain eyepieces specific info
-  const productsId = baseEyepieces.map((product) => product.id);
-  const eyepiecesInfoQuery = await pool.query(
-    `
-    SELECT *
-    FROM eyepieces
-    WHERE product_id = ANY($1)
-  `,
-    [productsId]
-  );
-  // Combine eyepieces data
-  const eyepieces = baseEyepieces.map((eyepiece) => {
-    const eyepieceData = eyepiecesInfoQuery.rows.find(
-      (info) => info.product_id === eyepiece.id
-    );
-    return { ...eyepiece, eyepieceData };
-  });
-
-  res.status(200).json({
-    message: "Eyepieces retrieved succesfully",
-    count: eyepieces.length,
-    eyepieces: eyepieces,
-  });
-};
-
-export const getFiltersController = async (req, res) => {
-  // Obtain base products => filters
-  const baseFiltersQuery = await pool.query(`
-      SELECT *
+  try {
+    // JOIN product_filters dos veces con alias diferentes
+    const query = await pool.query(`
+      SELECT 
+        products.*, 
+        product_filters.name AS build_type_name,
+        product_filters.image_url AS build_type_image,
+        product_brands.name AS brand_name,
+        product_brands.image_url AS brand_image
       FROM products
-      WHERE products.product_type = 'filter'
+      JOIN eyepieces ON eyepieces.product_id = products.id
+      JOIN eyepieces_specs ON eyepieces_specs.eyepiece_id = eyepieces.id
+      LEFT JOIN product_filters ON eyepieces_specs.product_filter_id = product_filters.id
+      LEFT JOIN product_brands ON products.brand_id = product_brands.id
+      WHERE products.product_type = 'eyepiece'
       ORDER BY products.created_at DESC
     `);
-  const baseFilters = baseFiltersQuery.rows;
-  //Obtain filters specific info
-  const productsId = baseFilters.map((product) => product.id);
-  const filtersInfoQuery = await pool.query(
-    `
-      SELECT *
-      FROM filters
-      WHERE product_id = ANY($1)
-    `,
-    [productsId]
-  );
-  // Combine filters data
-  const filters = baseFilters.map((filter) => {
-    const filterData = filtersInfoQuery.rows.find(
-      (info) => info.product_id === filter.id
-    );
-    return { ...filter, filterData };
-  });
 
-  res.status(200).json({
-    message: "Filters retrieved succesfully",
-    count: filters.length,
-    filters: filters,
-  });
-};
-
-// Get products by id controllers
-export const getProductByIdController = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    // Obtain selected base product
-    const query = await pool.query("SELECT * FROM products WHERE id = $1", [
-      id,
-    ]);
     if (query.rows.length === 0) {
-      throw new Error("Product not found");
-    }
-    let selectedProduct = { ...query.rows[0] };
-
-    // Obtain specific details of selected product
-    // Depending on product type
-    if (selectedProduct.product_type === "telescope") {
-      const telescopeQuery = await pool.query(
-        "SELECT id FROM telescopes WHERE product_id = $1",
-        [id]
-      );
-
-      if (telescopeQuery.rows.length === 0) {
-        return res.status(404).json({ message: "Telescope not found" });
-      }
-
-      const telescopeId = telescopeQuery.rows[0].id;
-
-      const telescopeDetailsQuery = await pool.query(
-        `
-        SELECT *
-        FROM telescope_specs
-        WHERE telescope_id = $1`,
-        [telescopeId]
-      );
-      if (telescopeDetailsQuery.rows.length === 0) {
-        throw new Error("Telescope details not found");
-      }
-      selectedProduct = {
-        ...selectedProduct,
-        specifications: {
-          ...telescopeDetailsQuery.rows[0],
-        },
-      };
-    }
-    if (selectedProduct.product_type === "mount") {
-      const mountQuery = await pool.query(
-        "SELECT id FROM mounts WHERE product_id = $1",
-        [id]
-      );
-
-      if (mountQuery.rows.length === 0) {
-        return res.status(404).json({ message: "Mount not found" });
-      }
-
-      const mountId = mountQuery.rows[0].id;
-
-      const mountDetailsQuery = await pool.query(
-        `
-        SELECT *
-        FROM mount_specs
-        WHERE mount_id = $1`,
-        [mountId]
-      );
-      if (mountDetailsQuery.rows.length === 0) {
-        throw new Error("Mount details not found");
-      }
-      selectedProduct = {
-        ...selectedProduct,
-        specifications: {
-          ...mountDetailsQuery.rows[0],
-        },
-      };
+      throw new Error("Eyepieces not found");
     }
 
     res.status(200).json({
-      message: "Product obtained succesfully",
-      product: selectedProduct,
+      message: "Eyepieces retrieved succesfully",
+      count: query.rowCount,
+      eyepieces: query.rows,
     });
   } catch (error) {
-    console.error("Error retrieving product", error);
-    res.status(404).json({ message: "Server error" });
+    console.error("Error retrieving eyepieces", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
+
+export const getFiltersController = async (req, res) => {
+  try {
+    const query = await pool.query(`
+      SELECT 
+        products.*, 
+        product_filters.name AS build_type_name,
+        product_filters.image_url AS build_type_image,
+        product_brands.name AS brand_name,
+        product_brands.image_url AS brand_image
+      FROM products
+      JOIN filters ON filters.product_id = products.id
+      JOIN filter_specs ON filter_specs.filter_id = filters.id
+      LEFT JOIN product_filters ON filter_specs.product_filter_id = product_filters.id
+      LEFT JOIN product_brands ON products.brand_id = product_brands.id
+      WHERE products.product_type = 'filter'
+      ORDER BY products.created_at DESC
+    `);
+
+    if (query.rows.length === 0) {
+      throw new Error("Filters not found");
+    }
+
+    res.status(200).json({
+      message: "Filters retrieved succesfully",
+      count: query.rowCount,
+      filters: query.rows,
+    });
+  } catch (error) {
+    console.error("Error retrieving filters", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// MODIFICAR TODOS LOS CONTROLADORES QUE OBTIENEN PRODUCTOS POR ID
 
 export const getTelescopeByIdController = async (req, res) => {
   const { id } = req.params;
@@ -258,7 +168,24 @@ export const getTelescopeByIdController = async (req, res) => {
   try {
     // Obtain base product
     const productQuery = await pool.query(
-      "SELECT * FROM products WHERE id = $1 AND product_type = 'telescope'",
+      `
+      SELECT 
+        products.*, 
+        optical_filter.name AS optical_design_name,
+        optical_filter.image_url AS optical_design_image,
+        mount_filter.name AS mount_type_name,
+        mount_filter.image_url AS mount_type_image,
+        product_brands.name AS brand_name,
+        product_brands.image_url AS brand_image
+      FROM products
+      JOIN telescopes ON telescopes.product_id = products.id
+      JOIN telescope_specs ON telescope_specs.telescope_id = telescopes.id
+      LEFT JOIN product_filters AS optical_filter ON telescope_specs.product_filter_id = optical_filter.id
+      LEFT JOIN product_filters AS mount_filter ON telescope_specs.mount_filter_id = mount_filter.id
+      LEFT JOIN product_brands ON products.brand_id = product_brands.id
+      WHERE products.id = $1 AND products.product_type = 'telescope'
+      LIMIT 1
+    `,
       [id]
     );
     if (productQuery.rows.length === 0) {
@@ -453,4 +380,33 @@ export const getFilterByIdController = async (req, res) => {
     console.error("Error retrieving filter", error);
     res.status(500).json({ message: "Server error" });
   }
+};
+
+// OBTAIN ALL PRODUCTS FILTERS AND BRANDS
+export const getProductsFiltersController = async (req, res) => {
+  const query = await pool.query("SELECT * FROM product_filters");
+
+  if (query.rows.length === 0) {
+    throw new Error("Product filters not found");
+  }
+
+  res.status(200).json({
+    message: "Filters retrieved succesfully",
+    count: query.rowCount,
+    productFilters: query.rows,
+  });
+};
+
+export const getProductsBrandsController = async (req, res) => {
+  const query = await pool.query("SELECT * FROM product_brands");
+
+  if (query.rows.length === 0) {
+    throw new Error("Products brands not found");
+  }
+
+  res.status(200).json({
+    message: "Brands retrieved succesfully",
+    count: query.rowCount,
+    productBrands: query.rows,
+  });
 };

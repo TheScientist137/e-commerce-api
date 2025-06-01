@@ -5,12 +5,12 @@ import {
   getMountsController,
   getEyepiecesController,
   getFiltersController,
-  
-  getProductByIdController,
+  getProductsFiltersController,
+  getProductsBrandsController,
   getTelescopeByIdController,
   getMountByIdController,
   getEyepieceByIdController,
-  getFilterByIdController
+  getFilterByIdController,
 } from "../controllers/shopController.js";
 
 const router = express.Router();
@@ -21,10 +21,12 @@ router.get("/mounts", getMountsController);
 router.get("/eyepieces", getEyepiecesController);
 router.get("/filters", getFiltersController);
 
-router.get('/telescopes/:id', getTelescopeByIdController);
-router.get('/mounts/:id', getMountByIdController);
+router.get("/productFilters", getProductsFiltersController);
+router.get("/productBrands", getProductsBrandsController);
+
+router.get("/telescopes/:id", getTelescopeByIdController);
+router.get("/mounts/:id", getMountByIdController);
 router.get("/eyepieces/:id", getEyepieceByIdController);
-router.get('/filters/:id', getFilterByIdController);
-router.get("/products/:id", getProductByIdController);
+router.get("/filters/:id", getFilterByIdController);
 
 export default router;
