@@ -29,17 +29,12 @@ export const getTelescopesController = async (req, res) => {
       SELECT 
         products.*, 
         optical_filter.name AS optical_design_name,
-        optical_filter.image_url AS optical_design_image,
-        mount_filter.name AS mount_type_name,
-        mount_filter.image_url AS mount_type_image,
-        product_brands.name AS brand_name,
-        product_brands.image_url AS brand_image
+        mount_filter.name AS mount_type_name
       FROM products
       JOIN telescopes ON telescopes.product_id = products.id
       JOIN telescope_specs ON telescope_specs.telescope_id = telescopes.id
       LEFT JOIN product_filters AS optical_filter ON telescope_specs.product_filter_id = optical_filter.id
       LEFT JOIN product_filters AS mount_filter ON telescope_specs.mount_filter_id = mount_filter.id
-      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'telescope'
       ORDER BY products.created_at DESC
     `);
@@ -65,15 +60,11 @@ export const getMountsController = async (req, res) => {
     const query = await pool.query(`
       SELECT 
         products.*, 
-        product_filters.name AS build_type_name,
-        product_filters.image_url AS build_type_image,
-        product_brands.name AS brand_name,
-        product_brands.image_url AS brand_image
+        product_filters.name AS build_type_name
       FROM products
       JOIN mounts ON mounts.product_id = products.id
       JOIN mount_specs ON mount_specs.mount_id = mounts.id
       LEFT JOIN product_filters ON mount_specs.product_filter_id = product_filters.id
-      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'mount'
       ORDER BY products.created_at DESC
     `);
@@ -99,15 +90,11 @@ export const getEyepiecesController = async (req, res) => {
     const query = await pool.query(`
       SELECT 
         products.*, 
-        product_filters.name AS build_type_name,
-        product_filters.image_url AS build_type_image,
-        product_brands.name AS brand_name,
-        product_brands.image_url AS brand_image
+        product_filters.name AS build_type_name
       FROM products
       JOIN eyepieces ON eyepieces.product_id = products.id
       JOIN eyepieces_specs ON eyepieces_specs.eyepiece_id = eyepieces.id
       LEFT JOIN product_filters ON eyepieces_specs.product_filter_id = product_filters.id
-      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'eyepiece'
       ORDER BY products.created_at DESC
     `);
@@ -132,15 +119,11 @@ export const getFiltersController = async (req, res) => {
     const query = await pool.query(`
       SELECT 
         products.*, 
-        product_filters.name AS build_type_name,
-        product_filters.image_url AS build_type_image,
-        product_brands.name AS brand_name,
-        product_brands.image_url AS brand_image
+        product_filters.name AS build_type_name
       FROM products
       JOIN filters ON filters.product_id = products.id
       JOIN filter_specs ON filter_specs.filter_id = filters.id
       LEFT JOIN product_filters ON filter_specs.product_filter_id = product_filters.id
-      LEFT JOIN product_brands ON products.brand_id = product_brands.id
       WHERE products.product_type = 'filter'
       ORDER BY products.created_at DESC
     `);
