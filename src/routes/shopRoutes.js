@@ -6,7 +6,6 @@ import {
   getEyepiecesController,
   getFiltersController,
   getProductsFiltersController,
-  getProductsBrandsController,
   getTelescopeByIdController,
   getMountByIdController,
   getEyepieceByIdController,
@@ -22,7 +21,6 @@ router.get("/eyepieces", getEyepiecesController);
 router.get("/filters", getFiltersController);
 
 router.get("/productFilters", getProductsFiltersController);
-router.get("/productBrands", getProductsBrandsController);
 
 router.get("/telescopes/:id", getTelescopeByIdController);
 router.get("/mounts/:id", getMountByIdController);
